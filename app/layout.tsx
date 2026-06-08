@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import PageTransition from "@/components/PageTransition";
+import "./globals.css";
+
+// Metadata arama motorları ve sosyal önizlemeler için sayfanın temel kimliğini tanımlar.
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Akya Group | Uçtan Uca Dijital Çözümler",
+  description:
+    "Akya Dijital Dönüşüm; yazılım, otomasyon, veri, bulut ve sürdürülebilir teknoloji çözümleriyle işletmelerin dönüşüm yolculuğunu hızlandırır.",
+  icons: {
+    icon: "/icon.svg",
+  },
+};
+
+// RootLayout tüm sayfalarda ortak HTML iskeletini ve dil bilgisini sağlar.
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <html lang="tr" className="scroll-smooth">
+      <body className="bg-background text-on-surface font-body-md">
+        <PageTransition>{children}</PageTransition>
+      </body>
+    </html>
+  );
+}

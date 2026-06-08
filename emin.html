@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AKYA DİJİTAL DÖNÜŞÜM A.Ş | Real Estate Developer &amp; Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#72787e",
+                        "surface": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#404562",
+                        "primary-fixed": "#cae6ff",
+                        "on-surface": "#1a1c1c",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2a1800",
+                        "on-secondary-fixed-variant": "#5c421f",
+                        "secondary-container": "#fed6a8",
+                        "on-tertiary-container": "#a7acce",
+                        "surface-container-low": "#f3f3f4",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#e6c093",
+                        "on-primary-fixed": "#001e30",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c0c5e7",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#a5cbec",
+                        "on-background": "#1a1c1c",
+                        "tertiary": "#242a45",
+                        "metallic-gold": "#AF8D64",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed": "#ffddb7",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#dde1ff",
+                        "on-primary-container": "#8cb2d2",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#3c627f",
+                        "outline-variant": "#c2c7ce",
+                        "on-secondary-container": "#795b37",
+                        "on-primary-fixed-variant": "#224a66",
+                        "tertiary-container": "#3a405c",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-container": "#1c4560",
+                        "deep-navy": "#0D132D",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed-dim": "#a5cbec",
+                        "industrial-blue": "#1C4560",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary": "#002f47",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#42474d",
+                        "slate-gray": "#F4F7F9",
+                        "secondary": "#765934",
+                        "on-tertiary-fixed": "#141a34"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "margin-tablet": "32px",
+                        "stack-md": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Open Sans"],
+                        "body-md": ["Open Sans"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(13, 19, 45, 0.7), rgba(13, 19, 45, 0.4));
+        }
+        .nav-link-active { color: #AF8D64; border-bottom: 2px solid #AF8D64; padding-bottom: 4px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 bg-deep-navy/95 backdrop-blur-md border-b border-industrial-blue/20">
+<div class="flex items-center gap-8">
+<a class="block" href="#">
+<img alt="GROUPE IDEC Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtyOgLUXr-uEGjaiF1bESt0pGctBISHulkbzOuOMBrB-RxO8nCFQKr1k81l7ZU2wcux2RRmKj5AOzHH1MGg4YHAAcoWJlcdBPS9ho3UxSqhMkk37FWyj1Yan8f4eqQCI6X8A2KItlR0dGGzgMII6tL6UTLUcHa1SBah1LFZ3w_jdZFf7385jLBwbmzv3H-GxnNqR76S66ONWfkzz9nRLla4f51YkSPE8GpX6_rXg6s6Qp7100_80tSq-sBh"/>
+</a>
+<div class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-metallic-gold border-b-2 border-metallic-gold pb-1 transition-all" href="#"></a>
+<a class="font-label-caps text-label-caps text-surface-container-lowest hover:text-metallic-gold transition-colors" href="#">Our Parks</a>
+<a class="font-label-caps text-label-caps text-surface-container-lowest hover:text-metallic-gold transition-colors" href="#">International</a>
+<a class="font-label-caps text-label-caps text-surface-container-lowest hover:text-metallic-gold transition-colors" href="#">Commitments</a>
+<a class="font-label-caps text-label-caps text-surface-container-lowest hover:text-metallic-gold transition-colors" href="#">News</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-surface-container-lowest">search</button>
+<a class="hidden md:block bg-metallic-gold text-deep-navy px-6 py-2 font-label-caps text-label-caps font-bold transition-transform active:translate-y-0.5" href="#contact">Contact Us</a>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-10000 hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLtd4eVjkJ6FwvHr4c73iAUe0OiuyxxM50f_im1IdqYl_ASTm0WWiluFeGeJSKCK6xSNJfydD8TiASdjRFrLGrCXqNrtSZ-AqtJd7Oa-DD9GvUcg12HzawSsIl2HNOtFLm3aGe-1nxeeg2cWum8W3LS8RHgoItdRB4iDId3VCdAE99-pr4-RDkReh7fKHBGrJjVt26lzG-6QX4Prfyki56oDaci6N5oBGyCIVMeZTcnkNgHqpWaE-ER9TXXs');"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-container-max px-margin-desktop text-center text-surface-container-lowest">
+<h1 class="font-display-lg text-display-lg uppercase mb-6 tracking-tighter">GROUPE IDEC INTERNATIONAL</h1>
+<p class="font-headline-sm text-headline-sm max-w-3xl mx-auto mb-10 text-on-primary-container">Developer, designer and builder, investor, creator of energy solutions for industrial and logistics real estate projects</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="group flex items-center gap-4 bg-surface-container-lowest text-deep-navy px-8 py-4 font-label-caps text-label-caps font-bold transition-all hover:bg-metallic-gold hover:text-deep-navy">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                    PLAY VIDEO
+                </button>
+<a class="border-2 border-surface-container-lowest text-surface-container-lowest px-8 py-4 font-label-caps text-label-caps font-bold transition-all hover:border-metallic-gold hover:text-metallic-gold" href="#projects">DISCOVER OUR PROJECTS</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-surface-container-lowest text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Value Chain Section (Bento Grid Style) -->
+<section class="py-section-padding px-margin-desktop bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16">
+<span class="font-label-caps text-label-caps text-metallic-gold block mb-2">INTEGRATED SOLUTIONS</span>
+<h2 class="font-headline-lg text-headline-lg text-deep-navy uppercase">Involvement across the entire value chain</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto">
+<!-- Main Card -->
+<div class="md:col-span-8 group relative overflow-hidden h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional architectural firm environment where team members are collaborating over detailed industrial site plans. The scene is bright with natural sunlight, highlighting high-end engineering workstations and large-scale site models. The atmosphere is focused and sophisticated, reflecting a premium corporate identity with industrial blue accents." src="https://lh3.googleusercontent.com/aida/AP1WRLtiG-vwYvWmVFSj3ZqYPur26jRYWcW51Lzort_6MsObyiare_2GTjh4ByJlGRb3nJYVF50yYi58J3BOwfAvqKD_DnzcUQP6gVaeAaGN_08UcLAj-g538QAX-dgvgsTaiJ-2Uc1BJ7GR-NplC0bqfPFKMvoeXBEZfEFHQam7qCatj2HpIc1Yn1n4ZJ1kp0K810sgHacVCocVi3USx-2y4z4BXoRjpxwYadYgtPie3S-I389z5UBKWXseOGKj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-navy via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<h3 class="font-headline-md text-headline-md text-surface-container-lowest mb-2">URBAN DEVELOPMENT</h3>
+<p class="text-surface-container-low mb-6 max-w-md">A unique approach to mixed-use development and large-scale industrial planning.</p>
+<a class="inline-flex items-center gap-2 text-metallic-gold font-label-caps text-label-caps group-hover:gap-4 transition-all" href="#">DISCOVER MORE <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+<!-- Secondary Card -->
+<div class="md:col-span-4 group relative overflow-hidden h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sleek, modern commercial real estate development site featuring glass facades and structural steel under a clear blue sky. The photo is taken from a low angle to emphasize the monumental scale of the building. The lighting is crisp and clear, showcasing the clean lines and industrial-modern aesthetic of the construction." src="https://lh3.googleusercontent.com/aida/AP1WRLvjtG4HD83FooQ_-_omyvL4iQEAjsZig2PGeBc_GcwyMlll95cD11DgPJwKf5JtbGwABSYwhohjVnClqvOWYfBH225Nh7GHLRUcATS1CPbeTRGQLXJcVERBgBDW8XJQx7icbYeKP78NnTzNHuey3QbJS8hmifFGUeTME2mBoQdHMuy5RA99N_xx5tMb4W7ClJ6NCfeLMiIIUNoeYmFWi0PNhIF43URwHjvkiMNLOojsH4ZqPV2avdE7ESY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-navy via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2 uppercase">Real Estate Developer</h3>
+<a class="inline-flex items-center gap-2 text-metallic-gold font-label-caps text-label-caps group-hover:gap-4 transition-all uppercase" href="#">Learn more <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="md:col-span-4 group relative overflow-hidden h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An expert designer in high-visibility safety gear inspecting a construction site with a tablet. The background shows a large logistics center under construction with prominent structural beams. The lighting is early morning gold, casting long shadows that highlight the architectural precision of the build." src="https://lh3.googleusercontent.com/aida/AP1WRLs2x63_zxuF0O0y5rQbP9xkK6rZkAMEf9Zuteb4a-UBxfBUVlc4T7kEDmMbr5jF-kQkev1e3lBm2bTA_mm-IE5BQCgYklaCNfhes0kCPJWHQXd9jCDboSwldOfh6hz6ASmL-Ir7N5Xoj8XsI--dbBAVPRd4WW-e1HTWDPeZHEz7ws5l965if06YPV9CNfncRb8gV2ESyu14wnBFuVD4kRxsivJg3l1zrLQSOEZB4yo94yNT61trqeiN7lJ7"/>
+<div class="absolute inset-0 bg-deep-navy/40 group-hover:bg-deep-navy/20 transition-all"></div>
+<div class="absolute bottom-0 left-0 p-8 bg-deep-navy/80 w-full">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2 uppercase">Designer - Builder</h3>
+<a class="text-metallic-gold font-label-caps text-label-caps" href="#">VIEW EXPERTISE</a>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide array of solar panels installed on the roof of a massive industrial warehouse, extending towards the horizon. The image is clean and minimalist, using a cool blue and silver palette to represent clean energy technology. The composition is balanced and symmetrical, emphasizing the scale of sustainable energy solutions." src="https://lh3.googleusercontent.com/aida/AP1WRLsyQ2ln6qCJO2ZxBa6nqDrQDfy37DZGwOQcKJ2TNkpFyCFnQcur0fDwlegTshpe8sWO4F-jKCgEdo4YEGJNckAsR3PJp4Y8jpmlF4EWmwcXXuwjvq87kJJjAR8v0EBUJF0IJoTC_IjgLP6_5dgot3h0Oi2sDxOAYFWejwUpUMnklOMzOsktE38_99RwBV-2_8TD6Ji9AJQywRFWtIOFeapCg3lwErQH4EZxavCb5FDBizdSROICYMhqz24"/>
+<div class="absolute inset-0 bg-deep-navy/40 group-hover:bg-deep-navy/20 transition-all"></div>
+<div class="absolute bottom-0 left-0 p-8 bg-deep-navy/80 w-full">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2 uppercase">Energy Installations</h3>
+<a class="text-metallic-gold font-label-caps text-label-caps" href="#">OUR RENEWABLES</a>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated corporate boardroom with a focus on real estate investment portfolio documents and high-end digital displays showing global market trends. The room features dark wood accents and polished stone surfaces, creating a mood of stability and high-stakes financial expertise. The lighting is warm and professional." src="https://lh3.googleusercontent.com/aida/AP1WRLuvXPWRoyZl22IgmqEKbbrCh15n74eG9L0TKaPd4uXip_M77SAStCEuKFxdyxABODQk98fjF4jj6yNaRMgFTDlY4qjsMbxeDCfNKuACbboeLygg74vi_El4JO4WZ-VmNKv1NpSv93zlc_HLrwoRHolC5rwCYRT66SwJfa3MfbCxH1i3UaRB17BKGKGlY_5m8B_0eQ_cLFEKJ8wKLaKLaKEnUqYgy3pUvotgYZNis7guuU7wdoKIhpZqLmbL"/>
+<div class="absolute inset-0 bg-deep-navy/40 group-hover:bg-deep-navy/20 transition-all"></div>
+<div class="absolute bottom-0 left-0 p-8 bg-deep-navy/80 w-full">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-2 uppercase">Real Estate Investment</h3>
+<a class="text-metallic-gold font-label-caps text-label-caps" href="#">FINANCING</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="bg-deep-navy py-24 border-y border-industrial-blue/30">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+<div class="flex flex-col gap-2">
+<span class="text-metallic-gold font-display-lg text-5xl md:text-6xl font-extrabold tracking-tight">+ 1.600</span>
+<span class="text-surface-container-lowest font-label-caps text-label-caps uppercase opacity-80">employees worldwide</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-metallic-gold font-display-lg text-5xl md:text-6xl font-extrabold tracking-tight">450</span>
+<span class="text-surface-container-lowest font-label-caps text-label-caps uppercase opacity-80">Hectares land managed</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-metallic-gold font-display-lg text-5xl md:text-6xl font-extrabold tracking-tight">+ 50</span>
+<span class="text-surface-container-lowest font-label-caps text-label-caps uppercase opacity-80">countries present</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-metallic-gold font-display-lg text-5xl md:text-6xl font-extrabold tracking-tight">+ 15</span>
+<span class="text-surface-container-lowest font-label-caps text-label-caps uppercase opacity-80">active programs</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="py-section-padding px-margin-desktop bg-slate-gray">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row gap-20 items-center">
+<div class="md:w-1/2">
+<span class="font-label-caps text-label-caps text-metallic-gold block mb-4">GLOBAL PRESENCE</span>
+<h2 class="font-headline-lg text-headline-lg text-deep-navy uppercase mb-8">Our locations in Europe and Asia</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">GROUPE IDEC INTERNATIONAL supports you across the world with local expertise and a global vision. From the industrial hubs of Europe to the emerging markets of Asia.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 border-l-4 border-metallic-gold bg-white shadow-sm font-label-caps text-label-caps text-deep-navy">FRANCE</div>
+<div class="p-4 border-l-4 border-metallic-gold bg-white shadow-sm font-label-caps text-label-caps text-deep-navy">SPAIN</div>
+<div class="p-4 border-l-4 border-metallic-gold bg-white shadow-sm font-label-caps text-label-caps text-deep-navy">VIETNAM</div>
+<div class="p-4 border-l-4 border-metallic-gold bg-white shadow-sm font-label-caps text-label-caps text-deep-navy">ITALY</div>
+</div>
+</div>
+<div class="md:w-1/2 relative">
+<div class="bg-industrial-blue/10 p-4 border border-industrial-blue/20">
+<img class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" data-alt="A highly detailed global map graphic designed in a minimalist industrial style. The map uses a deep navy background with continents highlighted in soft industrial blue and glowing gold markers indicating office locations in Europe and Asia. The aesthetic is clean, professional, and high-tech, fitting a global real estate developer's identity." data-location="Global Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIMiADTdZ_jfs_ZaeNooQcRuYS3LKs7jtvtN5R1r_FQY9KT8iO_n5_bAZFg4V8adyXlwZa4sCDb7mIp3OVIyKJIK7b5Bl04F7IZgmhXaWnrXu4UFo6ndKB25TYKAeiotJhcG-bHUVwI5_k19xXPeWQaq4frb4gC2nIncSBDYtBk3H0i3IX_p_CD_J_WRTy64NPkJdmriqG8n2ite5E-p2qXRQArk0uKXJw5U1zr2CGw3wcl0hR8KKUWVbtaEW6kN0DWAjqnrR5UD9S"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Parks Section -->
+<section class="py-section-padding px-margin-desktop bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg text-deep-navy uppercase mb-4">Discover our parks under development</h2>
+<div class="h-1 w-24 bg-metallic-gold mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Park 1 -->
+<div class="group cursor-pointer">
+<div class="overflow-hidden mb-6 h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An expansive aerial view of the Puerto Seco de Antequera industrial park in Spain. The landscape shows a sprawling, state-of-the-art logistics hub integrated with solar energy fields. The lighting is vibrant and sunny, emphasizing the sustainable 'positive energy' aspect of the project. The composition shows the monumental scale of the development against the Andalusian horizon." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-deep-navy uppercase mb-3">PUERTO SECO DE ANTEQUERA</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Europe's 1st XXL positive energy park in southern Spain. A 300-hectare XXL positive energy project meeting the highest industrial standards.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-deep-navy font-bold hover:text-metallic-gold transition-colors" href="#">
+                        SEE THE PROGRAM <span class="material-symbols-outlined">chevron_right</span>
+</a>
+</div>
+<!-- Park 2 -->
+<div class="group cursor-pointer">
+<div class="overflow-hidden mb-6 h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An aerial panoramic view of the Horizon Park in Bac Ninh, Vietnam. The image showcases modern industrial architecture amidst a rapidly developing economic zone. The scene is bright and clear, highlighting the precise grid layout of the logistics park and its connectivity to major infrastructure. The mood is one of dynamic growth and professional excellence." src="https://lh3.googleusercontent.com/aida/AP1WRLt2MrRTBGTSBQ0Y6QR3ynoIJ_hzeWwj6P-8qkz9SXA8whREKivNJtdoMzn_d-m8Ey30441sTgUq-pWYXaugn9yT48Z7lRtx81c6uGNPUWVjpHboF0zXy-OKp0Od1ftb9tr0D7gvfDzhxZzTtf1CE8Y-zCpL4u3HUI6AyWH6KJwF-g0C952LGWB-vZBLgoIXa5JSekM_W9GYT-K_34zWrWxpvLZxYblSCNaOEh_9ZyvSddUovMxYLchjXZGF"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-deep-navy uppercase mb-3">HORIZON PARK in BAC NINH</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">A flagship program at the economic heart of northern Vietnam, adopting the highest European standards for international industrial clients.</p>
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-deep-navy font-bold hover:text-metallic-gold transition-colors" href="#">
+                        SEE THE PROGRAM <span class="material-symbols-outlined">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- News Section -->
+<section class="py-section-padding px-margin-desktop bg-slate-gray">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label-caps text-label-caps text-metallic-gold block mb-2">STAY UPDATED</span>
+<h2 class="font-headline-lg text-headline-lg text-deep-navy uppercase">Latest News</h2>
+</div>
+<a class="font-label-caps text-label-caps text-deep-navy font-bold border-b-2 border-deep-navy pb-1" href="#">VIEW ALL NEWS</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- News Card 1 -->
+<article class="bg-white group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional construction launch ceremony for a major logistics infrastructure project. Dignitaries and engineers in safety gear are gathered around a groundbreaking site. The atmosphere is official and celebratory, with clear morning lighting and industrial machinery in the blurred background, reinforcing the theme of growth and development." src="https://lh3.googleusercontent.com/aida/AP1WRLvCcSt4G1hdg8GrA7GdO8MsymQBbK-zZELZgLeh41g5uf36FnIiVZE9XouFVR_ZVIv29QaG5LPT4HWUlsHJWuy-5-VUUtnsi7N2gyBy8wVvZ5oGs_ihmPjmr1G_P7Z1TS8PtD5XFCxfWdmOFnKcePtJyJyQwVQmegqaRZmJrvGMjE046CobocfJPVMP-L4fJIrsqbiAvyaU31nUIyJTtniNFAiq9wdDZgf1NDhprbfZcmi5MXDSGAvhMQjF"/>
+</div>
+<div class="p-6">
+<span class="text-[12px] font-bold text-metallic-gold uppercase block mb-3">22 April 2026</span>
+<h4 class="font-headline-sm text-[18px] text-deep-navy line-clamp-3 mb-4 group-hover:text-industrial-blue transition-colors">Puerto Seco de Antequera enters operational phase with construction...</h4>
+<a class="material-symbols-outlined text-deep-navy group-hover:translate-x-2 transition-transform" href="#">arrow_right_alt</a>
+</div>
+</article>
+<!-- News Card 2 -->
+<article class="bg-white group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-end corporate graphic representing international acquisition and expansion. The image features architectural blueprints and digital connection lines overlaying a modern skyscraper. The palette is dominated by deep navy and professional blue tones, with subtle metallic gold highlights to signify prestige and successful business growth." src="https://lh3.googleusercontent.com/aida/AP1WRLsrxDL9GbBNfiRbbtcllIMp3Cczn-guRY5qbBHcUAmbYjK8_30xK8ABvkXB9W904IBU_J03uy0MPs0htXqu4LSSmH-3QQnCkmtlK4lO-aYvD6Wb4NZ6h8SQlI-hqsf178tV7GAPcnDRRvKwC6rHUPvqkKgrT2FWBoGAF_QrJtUaYfZtkmfhMeGsPG1FgTjDMZbBhNwSO_39llEe6zJNp8qlNRCHNMomC-lpFUozxyUAghzyjAFWNOq2J85p"/>
+</div>
+<div class="p-6">
+<span class="text-[12px] font-bold text-metallic-gold uppercase block mb-3">30 March 2026</span>
+<h4 class="font-headline-sm text-[18px] text-deep-navy line-clamp-3 mb-4 group-hover:text-industrial-blue transition-colors">GROUPE IDEC STRENGTHENS PRESENCE WITH ACQUISITION OF VHM IN PORTUGAL</h4>
+<a class="material-symbols-outlined text-deep-navy group-hover:translate-x-2 transition-transform" href="#">arrow_right_alt</a>
+</div>
+</article>
+<!-- News Card 3 -->
+<article class="bg-white group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A futuristic visualization of the Vietnamese industrial market, featuring high-tech manufacturing plants and sustainable logistics hubs. The scene uses sunset lighting to create a warm, optimistic atmosphere. Data overlays and clean geometric lines emphasize the 'Industrial Market Outlook' theme, showcasing modern progress and economic potential." src="https://lh3.googleusercontent.com/aida/AP1WRLuO_WFhT9JTU1dl-RRx_Ra0JlrF8yThPMdcpQmdd0LkfMJcjiyCCHtSOThzhuBpf3ePvoZTTvi4PvQ1vjUyMuSGZhSASUOdqIO4TbqWj-W3wLw7e1JUKl88_t6XRaG3yAR7-vRBNlg4P9WehxuKAs5kRmv5EHzEevDsXaAlvOJA5_JlcQ6EG6vwMXsjhmEgAJT-QjkJmuZoa0td8K35bhGy4p2FZkZAgUmaeRpe3zbxSVV21kYjfjmyKt-A"/>
+</div>
+<div class="p-6">
+<span class="text-[12px] font-bold text-metallic-gold uppercase block mb-3">23 Feb 2026</span>
+<h4 class="font-headline-sm text-[18px] text-deep-navy line-clamp-3 mb-4 group-hover:text-industrial-blue transition-colors">VIETNAM 2026 - INDUSTRIAL MARKET OUTLOOK &amp; OPPORTUNITIES</h4>
+<a class="material-symbols-outlined text-deep-navy group-hover:translate-x-2 transition-transform" href="#">arrow_right_alt</a>
+</div>
+</article>
+<!-- News Card 4 -->
+<article class="bg-white group">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional team of architects and developers celebrating a grand opening of a new corporate office in Ho Chi Minh City. The interior is ultra-modern with glass walls, minimalist furniture, and lush greenery. The lighting is soft and inviting, reflecting a high-standard working environment and corporate success in an international setting." src="https://lh3.googleusercontent.com/aida/AP1WRLsVvp2rRZNjwB1i5jw9oCzxPCptLkNrvjDiKecDvmqD_NPyZYbTOVOTe_flqiQuNuuve4rezBHDxtVlZAtEDWms-8au4pnsxWsFH8GZtPfZWJp4fEd7S4NnaUUGDd-3RQZ7gpqLqHWoZGc-nghupvhnbhTbq-ZrShkqZWbPVq_2glvay2PehmVqu5iGcqk77V7Mr6lWyhgODrP9VgU75KTo-rhYZA3kxujWGo82B0jnbcnbVKFDmuYVtTo"/>
+</div>
+<div class="p-6">
+<span class="text-[12px] font-bold text-metallic-gold uppercase block mb-3">02 Oct 2025</span>
+<h4 class="font-headline-sm text-[18px] text-deep-navy line-clamp-3 mb-4 group-hover:text-industrial-blue transition-colors">IDEC GROUP ASIA celebrates grand opening of Ho Chi Minh City office</h4>
+<a class="material-symbols-outlined text-deep-navy group-hover:translate-x-2 transition-transform" href="#">arrow_right_alt</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-padding px-margin-desktop bg-deep-navy text-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<div class="lg:col-span-1">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-6">They trust us</h2>
+<p class="text-on-primary-container text-body-lg">Partnering with global leaders to deliver monumental real estate projects through expertise, precision, and shared ambition.</p>
+</div>
+<div class="lg:col-span-2">
+<div class="relative pl-12 border-l-2 border-metallic-gold">
+<span class="material-symbols-outlined absolute -left-5 -top-5 text-metallic-gold text-5xl">format_quote</span>
+<p class="font-headline-sm italic mb-8">"The professionalism and commitment of the IDEC International Group teams, combined with their in-depth knowledge of the Swedish ecosystem, are the keys to a successful project."</p>
+<div class="flex items-center gap-4">
+<div class="h-px w-12 bg-metallic-gold"></div>
+<div>
+<p class="font-bold text-surface-container-lowest">Frédéric OLLIVIER</p>
+<p class="text-on-primary-container text-sm">Industrial and QHSE Director, ELIS</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-section-padding px-margin-desktop bg-white" id="contact">
+<div class="max-w-container-max mx-auto flex flex-col lg:flex-row gap-20">
+<div class="lg:w-1/3">
+<h2 class="font-headline-lg text-headline-lg text-deep-navy uppercase mb-6">Your project?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">If you'd like to discuss your real estate project or learn more about project development, please contact our teams.</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-metallic-gold">location_on</span>
+<p class="text-on-surface">Paris, France (Headquarters)</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-metallic-gold">mail</span>
+<p class="text-on-surface">contact@groupeidec-international.com</p>
+</div>
+</div>
+</div>
+<div class="lg:w-2/3 bg-slate-gray p-10">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">HOW CAN WE HELP YOU?*</label>
+<select class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none">
+<option>I have a project</option>
+<option>I would like to get information</option>
+<option>I would like to become a partner</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">FIRST NAME*</label>
+<input class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">LAST NAME*</label>
+<input class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none" type="text"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">EMAIL ADDRESS*</label>
+<input class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none" type="email"/>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">PHONE NUMBER</label>
+<input class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none" type="tel"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-caps text-label-caps text-deep-navy mb-2">MESSAGE</label>
+<textarea class="w-full border-b border-outline bg-transparent py-3 focus:border-metallic-gold focus:ring-0 outline-none" rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<button class="w-full md:w-auto bg-deep-navy text-surface-container-lowest px-12 py-4 font-label-caps text-label-caps font-bold transition-all hover:bg-metallic-gold hover:text-deep-navy" type="submit">SEND MESSAGE</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="w-full bg-deep-navy px-margin-desktop py-section-padding flex flex-col gap-stack-lg border-t border-industrial-blue/20">
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-16">
+<div class="col-span-1">
+<img alt="GROUPE IDEC Logo" class="h-12 w-auto mb-8" src="https://lh3.googleusercontent.com/aida/AP1WRLtyOgLUXr-uEGjaiF1bESt0pGctBISHulkbzOuOMBrB-RxO8nCFQKr1k81l7ZU2wcux2RRmKj5AOzHH1MGg4YHAAcoWJlcdBPS9ho3UxSqhMkk37FWyj1Yan8f4eqQCI6X8A2KItlR0dGGzgMII6tL6UTLUcHa1SBah1LFZ3w_jdZFf7385jLBwbmzv3H-GxnNqR76S66ONWfkzz9nRLla4f51YkSPE8GpX6_rXg6s6Qp7100_80tSq-sBh"/>
+<p class="text-on-tertiary-container font-body-md">Global partner for ambitious industrial and logistics real estate projects in Europe and Asia.</p>
+</div>
+<div>
+<h5 class="text-metallic-gold font-label-caps text-label-caps mb-6">PROFESSIONS</h5>
+<ul class="space-y-4">
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Urban Development</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Property Development</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Designer / Builder</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Energy Solutions</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-metallic-gold font-label-caps text-label-caps mb-6">SITEMAP</h5>
+<ul class="space-y-4">
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Our Programs</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">International Locations</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Commitments</a></li>
+<li><a class="text-on-tertiary-container hover:text-surface-container-lowest font-body-md transition-colors" href="#">Latest News</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-metallic-gold font-label-caps text-label-caps mb-6">FOLLOW US</h5>
+<div class="flex gap-4 mb-8">
+<a class="w-10 h-10 border border-metallic-gold/30 flex items-center justify-center text-metallic-gold hover:bg-metallic-gold hover:text-deep-navy transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 border border-metallic-gold/30 flex items-center justify-center text-metallic-gold hover:bg-metallic-gold hover:text-deep-navy transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto w-full pt-12 border-t border-industrial-blue/20 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-on-tertiary-container text-[12px]">© 2024 GROUPE IDEC INTERNATIONAL. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 text-[12px] text-on-tertiary-container">
+<a class="hover:text-surface-container-lowest" href="#">Legal Notice</a>
+<a class="hover:text-surface-container-lowest" href="#">Privacy Policy</a>
+<a class="hover:text-surface-container-lowest" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for navbar background
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-deep-navy');
+                nav.classList.remove('bg-deep-navy/95');
+            } else {
+                nav.classList.remove('bg-deep-navy');
+                nav.classList.add('bg-deep-navy/95');
+            }
+        });
+
+        // Stats counter animation (simplified)
+        const stats = document.querySelectorAll('.font-display-lg');
+        const animateStats = () => {
+            stats.forEach(stat => {
+                const value = stat.innerText;
+                // Animation logic could be added here for a polished feel
+            });
+        };
+        
+        // Initializing animations
+        document.addEventListener('DOMContentLoaded', animateStats);
+    </script>
+</body></html>
