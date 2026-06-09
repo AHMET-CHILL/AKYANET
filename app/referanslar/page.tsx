@@ -37,13 +37,21 @@ export default function ReferencesPage() {
 
       <section className="bg-white px-margin-mobile py-24 md:px-margin-desktop md:py-section-padding">
         <div className="mx-auto max-w-container-max">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {references.map((reference) => (
-              <article className="group flex min-h-[520px] flex-col border border-outline-variant bg-white" key={reference.name}>
+              <article
+                className="group flex min-h-[520px] scroll-mt-32 flex-col border border-outline-variant bg-white"
+                id={reference.slug}
+                key={reference.name}
+              >
                 <div className="flex h-64 items-center justify-center bg-deep-navy p-10">
                   <img
                     alt={`${reference.name} logosu`}
-                    className="max-h-28 max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    className={`object-contain transition-transform duration-500 group-hover:scale-105 ${
+                      reference.logo === "/reference-turk-telekom.svg"
+                        ? "h-auto w-[94%] max-w-[300px]"
+                        : "max-h-28 max-w-full"
+                    }`}
                     src={reference.logo}
                   />
                 </div>

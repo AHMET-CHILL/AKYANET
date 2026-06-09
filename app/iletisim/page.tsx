@@ -1,7 +1,7 @@
 import ContactForm from "@/components/ContactForm";
 import InnerPageShell from "@/components/InnerPageShell";
 
-const officeAddress = "Çiğdem, 1552. Sk. No:1 D:5, 4. Kat, 06530 Çankaya/Ankara";
+const officeAddress = "1552. Sokak, Çiğdem Mahallesi, No:1, Kat:4, Çankaya, Ankara, Türkiye";
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
 const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(officeAddress)}&output=embed`;
 

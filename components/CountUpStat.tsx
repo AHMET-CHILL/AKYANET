@@ -70,10 +70,18 @@ export default function CountUpStat({ target, prefix = "", suffix = "" }: CountU
         observer.disconnect();
         animateCount();
       },
-      { threshold: 0.35 },
+      // Düşük eşik, küçük mobil ekranlarda bölümün tamamı görünmeden animasyonu başlatır.
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
 
     observer.observe(element);
+
+    // Sayfa sayaç bölümü görünür halde açıldıysa observer'ın ilk bildirimini beklemeden başlatır.
+    const bounds = element.getBoundingClientRect();
+    if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+      observer.disconnect();
+      animateCount();
+    }
 
     return () => observer.disconnect();
   }, [target]);

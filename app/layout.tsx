@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import PageTransition from "@/components/PageTransition";
+import UnderConstructionBanner from "@/components/UnderConstructionBanner";
 import "./globals.css";
 
 // Metadata arama motorları ve sosyal önizlemeler için sayfanın temel kimliğini tanımlar.
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html lang="tr" className="scroll-smooth">
       <body className="bg-background text-on-surface font-body-md">
+        <UnderConstructionBanner />
         <PageTransition>{children}</PageTransition>
       </body>
     </html>

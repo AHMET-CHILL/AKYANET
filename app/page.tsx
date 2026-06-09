@@ -64,12 +64,12 @@ function HeroSection() {
   return (
     <section className="relative flex min-h-[680px] w-full items-center justify-center overflow-hidden py-28 md:h-screen md:min-h-[720px] md:py-0">
       <div className="absolute inset-0 z-0">
-        {/* GIF, arka plan resmi yerine doğrudan görsel olarak kullanılarak daha keskin ölçeklenir. */}
+        {/* Sabit veri merkezi görseli, hareket olmadan yüksek netlikte tam alanı kaplar. */}
         <img
-          alt=""
+          alt="Mavi ışıklı veri merkezi sunucu koridoru"
           aria-hidden="true"
           className="h-full w-full object-cover object-center"
-          src="/datacenter.gif"
+          src="/hero-data-center.jpg"
         />
         <div className="hero-gradient absolute inset-0" />
       </div>
@@ -303,7 +303,7 @@ function TrustSection() {
 
 // ContactSection iletişim içeriğini ve form bileşenini tek bölümde toplar.
 function ContactSection() {
-  const officeAddress = "Çiğdem, 1552. Sk. No:1 D:5, 4. Kat, 06530 Çankaya/Ankara";
+  const officeAddress = "1552. Sokak, Çiğdem Mahallesi, No:1, Kat:4, Çankaya, Ankara, Türkiye";
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
   const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(officeAddress)}&output=embed`;
 

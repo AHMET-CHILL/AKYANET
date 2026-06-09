@@ -1,5 +1,6 @@
 // Reference, ana sayfa bandı ve Referanslar sayfasında kullanılan kurum bilgisini tanımlar.
 export type Reference = {
+  slug: string;
   name: string;
   shortName: string;
   logo: string;
@@ -12,6 +13,18 @@ export type Reference = {
 // references, AKYA Group'un referans kurumlarını tek merkezden yönetir.
 export const references: Reference[] = [
   {
+    slug: "turk-telekom-umitkoy",
+    name: "Türk Telekomünikasyon A.Ş.",
+    shortName: "Türk Telekom Ümitköy",
+    logo: "/reference-turk-telekom.svg",
+    description:
+      "Ümitköy yerleşkesindeki veri merkezi için kritik altyapı, saha uygulama, test ve devreye alma çalışmaları.",
+    projectHref: "/projeler/tamamlanan/turk-telekom-umitkoy-veri-merkezi",
+    projectLabel: "Türk Telekom Ümitköy Veri Merkezi",
+    statusLabel: "Tamamlanan Proje",
+  },
+  {
+    slug: "ptt-genel-merkezi",
     name: "Posta ve Telgraf Teşkilatı A.Ş.",
     shortName: "PTT Genel Merkezi",
     logo: "/reference-ptt.png",
@@ -22,6 +35,7 @@ export const references: Reference[] = [
     statusLabel: "Tamamlanan Proje",
   },
   {
+    slug: "cevre-sehircilik-bakanligi",
     name: "Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
     shortName: "Çevre ve Şehircilik Bakanlığı",
     logo: "/reference-environment-ministry.svg",
@@ -32,6 +46,7 @@ export const references: Reference[] = [
     statusLabel: "Tamamlanan Proje",
   },
   {
+    slug: "rtuk-genel-merkezi",
     name: "Radyo ve Televizyon Üst Kurulu",
     shortName: "RTÜK Genel Merkezi",
     logo: "/reference-rtuk.png",

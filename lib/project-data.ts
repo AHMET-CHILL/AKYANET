@@ -28,6 +28,39 @@ export type Project = {
 // projects, projeler bölümündeki bütün liste, menü ve detay içeriklerinin tek kaynağıdır.
 export const projects: Project[] = [
   {
+    slug: "turk-telekom-umitkoy-veri-merkezi",
+    status: "tamamlanan",
+    statusLabel: "Tamamlanan Proje",
+    title: "Türk Telekom Ümitköy Veri Merkezi",
+    heroTitle: "Türk Telekom Ümitköy Veri Merkezi Projesi",
+    summary:
+      "Türk Telekom Ümitköy yerleşkesindeki veri merkezi için kritik altyapı, saha uygulama ve devreye alma çalışmaları tamamlandı.",
+    description:
+      "Proje kapsamında Türk Telekom Ümitköy yerleşkesindeki veri merkezi ortamının güvenli, izlenebilir ve sürdürülebilir çalışmasını destekleyen mühendislik ve saha uygulama süreçleri yürütüldü. AKYA Group; saha koşulları, operasyonel süreklilik gereksinimleri ve kritik tesis standartlarını birlikte değerlendirerek uygulama, test, doğrulama ve teslimat adımlarını bütüncül bir yaklaşımla yönetti.",
+    image: "/hero-data-center.jpg",
+    imageAlt: "Türk Telekom Ümitköy veri merkezi projesini temsil eden kritik altyapı görseli",
+    logo: "/reference-turk-telekom.svg",
+    tags: ["Veri Merkezi", "Telekomünikasyon", "Kritik Altyapı", "Saha Uygulaması"],
+    scope: [
+      "Veri merkezi saha ve altyapı gereksinimlerinin değerlendirilmesi",
+      "Kritik tesis uygulamalarının proje hedefleriyle uyumlu yürütülmesi",
+      "Enerji, soğutma ve bağlantı altyapılarının koordinasyonu",
+      "Saha uygulama ve devreye alma süreçlerinin yönetilmesi",
+      "Test, doğrulama ve teslimat dokümantasyonunun hazırlanması",
+    ],
+    overview: [
+      { label: "Proje Türü", value: "Telekomünikasyon veri merkezi projesi" },
+      { label: "Lokasyon", value: "Ümitköy, Ankara" },
+      { label: "Durum", value: "Tamamlandı" },
+    ],
+    approach: ["Saha ve ihtiyaç analizi", "Uygulama koordinasyonu", "Test ve devreye alma", "Teslimat raporlaması"],
+    values: ["Operasyonel süreklilik", "Kritik altyapı güvenilirliği", "Kontrollü devreye alma", "İzlenebilir proje teslimatı"],
+    seoDescription:
+      "Türk Telekom Ümitköy veri merkezi projesinde AKYA Group tarafından yürütülen kritik altyapı, saha uygulama, test ve devreye alma çalışmaları.",
+    imageSourceNote:
+      "Temsili teknik veri merkezi görseli kullanılmıştır. Türk Telekom logosu kurumun resmi web sitesindeki kurumsal logo dosyasından alınmıştır.",
+  },
+  {
     slug: "ptt-genel-merkezi-veri-merkezi",
     status: "tamamlanan",
     statusLabel: "Tamamlanan Proje",

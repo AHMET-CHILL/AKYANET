@@ -46,9 +46,9 @@ body {
   background:
     linear-gradient(
       180deg,
-      rgba(13, 19, 45, 0.7) 0%,
-      rgba(13, 19, 45, 0.42) 45%,
-      rgba(13, 19, 45, 0.5) 100%
+      rgba(13, 19, 45, 0.56) 0%,
+      rgba(13, 19, 45, 0.26) 45%,
+      rgba(13, 19, 45, 0.38) 100%
     );
 }
 
@@ -57,9 +57,9 @@ body {
     background:
       linear-gradient(
         180deg,
-        rgba(13, 19, 45, 0.55) 0%,
-        rgba(13, 19, 45, 0.24) 48%,
-        rgba(13, 19, 45, 0.34) 100%
+        rgba(13, 19, 45, 0.42) 0%,
+        rgba(13, 19, 45, 0.14) 48%,
+        rgba(13, 19, 45, 0.26) 100%
       );
   }
 }
@@ -67,7 +67,9 @@ body {
 /* Referans carousel'ı sürüklenebilir tutarken görünür scrollbarı gizler. */
 .reference-carousel {
   scrollbar-width: none;
-  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+  touch-action: pan-x pan-y;
 }
 
 .reference-carousel::-webkit-scrollbar {

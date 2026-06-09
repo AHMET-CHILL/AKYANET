@@ -6,6 +6,8 @@ import { projectStatusLabels } from "@/lib/project-data";
 
 // ProjectDetailLayout, bütün proje detaylarında ortak hero, kapsam, yaklaşım ve CTA yapısını sağlar.
 export default function ProjectDetailLayout({ project }: { project: Project }) {
+  const isTurkTelekom = project.logo === "/reference-turk-telekom.svg";
+
   return (
     <main className="bg-background">
       <Navbar />
@@ -14,7 +16,11 @@ export default function ProjectDetailLayout({ project }: { project: Project }) {
         <img
           alt=""
           aria-hidden="true"
-          className="absolute bottom-[10%] right-[-8%] max-h-[50%] w-[72%] object-contain object-right opacity-15 md:bottom-auto md:right-[3%] md:top-1/2 md:max-h-[48%] md:w-[45%] md:-translate-y-1/2 md:opacity-30"
+          className={`absolute object-contain object-right opacity-15 md:top-1/2 md:-translate-y-1/2 md:opacity-30 ${
+            isTurkTelekom
+              ? "bottom-[8%] right-[-5%] max-h-[58%] w-[86%] md:bottom-auto md:right-[2%] md:max-h-[58%] md:w-[54%]"
+              : "bottom-[10%] right-[-8%] max-h-[50%] w-[72%] md:bottom-auto md:right-[3%] md:max-h-[48%] md:w-[45%]"
+          }`}
           src={project.logo}
         />
         <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-deep-navy via-deep-navy/90 to-transparent md:w-[72%]" />

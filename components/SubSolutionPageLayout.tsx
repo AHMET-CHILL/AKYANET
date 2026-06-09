@@ -30,7 +30,9 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
           <h1 className="max-w-5xl font-display-lg text-[40px] font-extrabold uppercase leading-[1.08] md:text-display-lg">
             {solution.title}
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-primary-fixed-dim">{solution.summary}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-primary-fixed-dim">
+            {solution.heroSubtitle ?? solution.summary}
+          </p>
           <Link
             className="mt-9 inline-flex bg-metallic-gold px-8 py-4 font-label-caps text-label-caps font-bold uppercase text-deep-navy transition-colors hover:bg-white"
             href="/iletisim"
@@ -47,10 +49,10 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
             <h2 className="font-headline-lg text-4xl uppercase text-deep-navy md:text-headline-lg">Saha ihtiyacına göre tasarlanan bütünleşik yapı</h2>
           </div>
           <div className="space-y-5 text-lg leading-8 text-on-surface-variant">
-            <p>{solution.summary}</p>
-            <p>
-              AKYA Group, bu çözümü mevcut altyapı, operasyon hedefleri ve büyüme planlarıyla birlikte değerlendirir; tasarımdan entegrasyona ve raporlamaya kadar ölçülebilir bir uygulama yaklaşımı kurar.
-            </p>
+            {(solution.introduction ?? [
+              solution.summary,
+              "AKYA Group, bu çözümü mevcut altyapı, operasyon hedefleri ve büyüme planlarıyla birlikte değerlendirir; tasarımdan entegrasyona ve raporlamaya kadar ölçülebilir bir uygulama yaklaşımı kurar.",
+            ]).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </div>
       </section>
@@ -58,7 +60,9 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
       <section className="bg-slate-gray px-margin-mobile py-24 md:px-margin-desktop md:py-section-padding">
         <div className="mx-auto max-w-container-max">
           <p className="mb-3 font-label-caps text-label-caps uppercase text-metallic-gold">Hizmet ve Ürün Kapsamı</p>
-          <h2 className="mb-12 max-w-4xl font-headline-lg text-4xl uppercase text-deep-navy md:text-headline-lg">Proje yaşam döngüsünü destekleyen dört çalışma alanı</h2>
+          <h2 className="mb-12 max-w-4xl font-headline-lg text-4xl uppercase text-deep-navy md:text-headline-lg">
+            Proje kapsamını oluşturan çalışma alanları
+          </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
             {solution.scopeTitles.map((title, index) => (
               <article className="border-t-4 border-metallic-gold bg-white p-7 shadow-sm" key={title}>
@@ -70,6 +74,27 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
           </div>
         </div>
       </section>
+
+      {solution.deliverables && solution.deliverables.length > 0 ? (
+        <section className="bg-deep-navy px-margin-mobile py-24 text-white md:px-margin-desktop md:py-section-padding">
+          <div className="mx-auto max-w-container-max">
+            <p className="mb-3 font-label-caps text-label-caps uppercase text-metallic-gold">Teslim Çıktıları</p>
+            <h2 className="mb-12 max-w-4xl font-headline-lg text-4xl uppercase md:text-headline-lg">
+              Projeyi izlenebilir ve uygulanabilir hale getiren dokümanlar
+            </h2>
+            <div className="grid grid-cols-1 gap-px bg-white/15 md:grid-cols-2 lg:grid-cols-4">
+              {solution.deliverables.map((deliverable, index) => (
+                <article className="min-h-40 bg-deep-navy p-7" key={deliverable}>
+                  <span className="font-label-caps text-xs text-metallic-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-5 font-semibold leading-7 text-white">{deliverable}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="bg-white px-margin-mobile py-24 md:px-margin-desktop md:py-section-padding">
         <div className="mx-auto grid max-w-container-max grid-cols-1 gap-16 lg:grid-cols-2">
@@ -89,7 +114,7 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
               {solution.integrations.map((integration) => (
                 <span className="border border-outline-variant px-5 py-3 font-semibold text-deep-navy" key={integration}>{integration}</span>
               ))}
-            </div>
+          </div>
           </div>
         </div>
       </section>
@@ -141,7 +166,7 @@ export default function SubSolutionPageLayout({ solution }: { solution: SubSolut
           <p className="mb-3 font-label-caps text-label-caps uppercase text-metallic-gold">Projeniz İçin</p>
           <h2 className="font-headline-lg text-4xl uppercase md:text-headline-lg">Bu çözümü projenize uyarlayalım</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-primary-fixed-dim">
-            Saha ihtiyacınızı, mevcut altyapınızı ve hedeflerinizi birlikte değerlendirerek uygulanabilir çözüm kapsamını oluşturalım.
+            {solution.ctaText ?? "Saha ihtiyacınızı, mevcut altyapınızı ve hedeflerinizi birlikte değerlendirerek uygulanabilir çözüm kapsamını oluşturalım."}
           </p>
           <Link className="mt-10 inline-flex bg-metallic-gold px-9 py-4 font-label-caps text-label-caps font-bold uppercase text-deep-navy hover:bg-white" href="/iletisim">
             AKYA Group ile İletişime Geçin

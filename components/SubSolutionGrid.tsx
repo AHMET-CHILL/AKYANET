@@ -4,6 +4,7 @@ import { getSubSolutionsByParent } from "@/lib/sub-solutions";
 // SubSolutionGrid, ilgili ana çözümün alt ürünlerini responsive kart düzeninde listeler.
 export default function SubSolutionGrid({ parentSlug }: { parentSlug: string }) {
   const solutions = getSubSolutionsByParent(parentSlug);
+  const isDataCenter = parentSlug === "veri-merkezi";
 
   if (solutions.length === 0) {
     return null;
@@ -14,10 +15,14 @@ export default function SubSolutionGrid({ parentSlug }: { parentSlug: string }) 
       <div className="mx-auto max-w-container-max">
         <p className="mb-3 font-label-caps text-label-caps uppercase text-metallic-gold">Alt Çözümler ve Ürünler</p>
         <h2 className="max-w-4xl font-headline-lg text-4xl uppercase text-deep-navy md:text-headline-lg">
-          Bu çözüm alanında sunduğumuz teknoloji ve ürün başlıkları
+          {isDataCenter
+            ? "Veri merkezi altyapıları için uçtan uca çözüm başlıkları"
+            : "Bu çözüm alanında sunduğumuz teknoloji ve ürün başlıkları"}
         </h2>
         <p className="mt-6 max-w-3xl text-on-surface-variant">
-          AKYA Group; yazılım, donanım, izleme, raporlama ve saha teknolojilerini proje ihtiyacına göre bütünleşik bir yapıda ele alır.
+          {isDataCenter
+            ? "AKYA Group; veri merkezi inşası, enerji altyapısı, soğutma, kablolama, izleme, güvenlik, yangın, commissioning ve bakım süreçlerini bütünleşik bir mühendislik yaklaşımıyla ele alır."
+            : "AKYA Group; yazılım, donanım, izleme, raporlama ve saha teknolojilerini proje ihtiyacına göre bütünleşik bir yapıda ele alır."}
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">

@@ -81,7 +81,9 @@ export default function Footer() {
         <div>
           <h2 className="mb-6 font-label-caps text-label-caps uppercase text-metallic-gold">İletişim</h2>
           <address className="space-y-4 not-italic">
-            <p className="font-body-md text-primary-fixed-dim">Çiğdem, 1552. Sk. No:1/7 D:5, 4. Kat, 06530 Çankaya/Ankara</p>
+            <p className="font-body-md text-primary-fixed-dim">
+              1552. Sokak, Çiğdem Mahallesi, No:1, Kat:4, Çankaya, Ankara, Türkiye
+            </p>
             <p>
               <a
                 className="font-body-md text-primary-fixed-dim transition-colors duration-200 hover:text-metallic-gold"

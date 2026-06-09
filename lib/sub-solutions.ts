@@ -5,8 +5,12 @@ export type SubSolution = {
   slug: string;
   title: string;
   summary: string;
+  heroSubtitle?: string;
+  introduction?: string[];
   scopeTitles: string[];
   scopeItems: string[];
+  deliverables?: string[];
+  ctaText?: string;
   useCases: string[];
   integrations: string[];
   image: {
@@ -30,8 +34,13 @@ type ParentConfig = {
 type SolutionSeed = {
   slug: string;
   title: string;
+  summary?: string;
+  heroSubtitle?: string;
+  introduction?: string[];
   scopeTitles: string[];
   scopeItems: string[];
+  deliverables?: string[];
+  ctaText?: string;
 };
 
 // parentConfigs, her ana çözümün ortak görselini, kullanım alanlarını ve entegrasyonlarını merkezileştirir.
@@ -99,7 +108,7 @@ function createSolutions(parentSlug: string, seeds: SolutionSeed[]): SubSolution
   const parent = parentConfigs[parentSlug];
 
   return seeds.map((seed) => {
-    const summary = `${seed.scopeItems[0]}. ${seed.scopeItems[1]}.`;
+    const summary = seed.summary ?? `${seed.scopeItems[0]}. ${seed.scopeItems[1]}.`;
     const description = `${seed.title}; ${seed.scopeItems[0].toLocaleLowerCase("tr-TR")} için AKYA Group mühendislik yaklaşımı sunar.`;
 
     return {
@@ -108,8 +117,12 @@ function createSolutions(parentSlug: string, seeds: SolutionSeed[]): SubSolution
       slug: seed.slug,
       title: seed.title,
       summary,
+      heroSubtitle: seed.heroSubtitle,
+      introduction: seed.introduction,
       scopeTitles: seed.scopeTitles,
       scopeItems: seed.scopeItems,
+      deliverables: seed.deliverables,
+      ctaText: seed.ctaText,
       useCases: parent.useCases,
       integrations: parent.integrations,
       image: {
@@ -376,46 +389,188 @@ const dataCenterSolutions = createSolutions("veri-merkezi", [
   {
     slug: "veri-merkezi-insaasi",
     title: "Veri Merkezi İnşası",
-    scopeTitles: ["Planlama", "Elektrik Altyapısı", "Mekanik Altyapı", "Devreye Alma"],
+    summary: "Veri salonu, teknik hacimler, enerji odaları, rack alanları ve büyüme hedeflerine uygun uçtan uca veri merkezi kurulum süreci.",
+    heroSubtitle: "Kritik dijital altyapılar için planlı, ölçeklenebilir ve sürdürülebilir veri merkezi inşa süreçleri.",
+    scopeTitles: ["Alan Planlama", "Rack Koordinasyonu", "Disiplin Yönetimi", "Devreye Alma", "Büyüme Planı"],
     scopeItems: [
-      "Veri salonu ve teknik hacimlerin ihtiyaç, kapasite ve büyüme hedeflerine göre planlanması",
-      "UPS, jeneratör, pano, PDU, topraklama ve güç dağıtım altyapısının koordinasyonu",
-      "Soğutma, hava akışı, sıcak ve soğuk koridor düzeninin saha koşullarına göre kurulması",
-      "Elektrik, mekanik, zayıf akım ve izleme sistemlerinin test edilerek dokümante edilmesi",
+      "Veri salonu ve teknik hacimlerin ihtiyaçlara göre planlanması",
+      "Rack yerleşimi, enerji ve soğutma alan koordinasyonunun yapılması",
+      "Mekanik, elektrik ve zayıf akım disiplinlerinin birlikte ele alınması",
+      "Uygulama, devreye alma ve teslim dokümantasyonunun yürütülmesi",
+      "Gelecekteki kapasite artışına uygun altyapı yaklaşımının kurulması",
     ],
+    deliverables: ["Yerleşim ve disiplin koordinasyon çıktıları", "Enerji, soğutma ve kablolama kapsam notları", "Devreye alma kontrol listeleri", "As-built ve teslim doküman yapısı"],
   },
   {
-    slug: "izleme-ve-alarm-yonetimi",
+    slug: "veri-merkezi-kapasite-artirimi-modernizasyon",
+    title: "Veri Merkezi Kapasite Artırımı ve Modernizasyon",
+    summary: "Mevcut veri merkezlerinde yeni rack, sunucu, enerji, soğutma ve kablolama ihtiyaçlarının mevcut yapıya entegre edilmesi.",
+    heroSubtitle: "Çalışan veri merkezlerinde kapasiteyi artırırken süreklilik, güvenlik ve operasyon risklerini birlikte yönetiyoruz.",
+    scopeTitles: ["Mevcut Durum", "Yeni Kapasite", "Termal Etki", "Enerji Revizyonu", "Fazlı Uygulama"],
+    scopeItems: [
+      "Mevcut altyapının kapasite ve risk analizinin yapılması",
+      "Yeni sunucu, rack, PDU ve kablolama ihtiyaçlarının planlanması",
+      "Soğutma kapasitesi ve hava akışı etkisinin değerlendirilmesi",
+      "Enerji altyapısı ve yedeklilik senaryolarının güncellenmesi",
+      "Kesinti riskini azaltan fazlı uygulama yaklaşımının hazırlanması",
+    ],
+    deliverables: ["Mevcut durum analiz notu", "Kapasite artırım uygulama planı", "Enerji ve soğutma etki değerlendirmesi", "Kablolama ve rack yerleşim revizyonları"],
+  },
+  {
+    slug: "enerji-altyapisi",
+    title: "Enerji Altyapısı",
+    summary: "Trafo, ana dağıtım, tali panolar, UPS beslemeleri, PDU hatları ve kritik yükler için enerji dağıtım mimarisi.",
+    heroSubtitle: "Veri merkezlerinde güvenilir enerji dağıtımı için ölçeklenebilir ve izlenebilir güç altyapısı tasarımı.",
+    scopeTitles: ["Ana Dağıtım", "Besleme Senaryoları", "A/B Besleme", "Enerji İzleme", "Erişilebilir Tasarım"],
+    scopeItems: [
+      "Ana enerji dağıtım mimarisinin oluşturulması",
+      "Pano, kablo güzergahı ve besleme senaryolarının planlanması",
+      "Kritik yükler için A/B besleme yaklaşımının kurulması",
+      "Enerji ölçüm, izleme ve raporlama altyapısının tasarlanması",
+      "Bakım ve genişleme için erişilebilir tasarım geliştirilmesi",
+    ],
+    deliverables: ["Tek hat ve dağıtım prensipleri", "Pano ve besleme kapsam dokümanı", "Kritik yük sınıflandırması", "Enerji izleme entegrasyon notları"],
+  },
+  {
+    slug: "ups-ve-kesintisiz-guc-sistemleri",
+    title: "UPS ve Kesintisiz Güç Sistemleri",
+    summary: "Kritik yüklerin sürekliliği için UPS mimarisi, bypass senaryoları, yedeklilik ve enerji sürekliliği yaklaşımı.",
+    heroSubtitle: "Kesintisiz operasyon hedefiyle UPS sistemlerini yük profili, büyüme ve bakım senaryolarına göre kurguluyoruz.",
+    scopeTitles: ["UPS Kapasitesi", "Bypass Kurgusu", "Kritik Yükler", "Bakım Sürekliliği", "İzleme"],
+    scopeItems: [
+      "UPS kapasite ve yedeklilik yaklaşımının belirlenmesi",
+      "A/B besleme ve bypass kurgusunun oluşturulması",
+      "Kritik yüklerin sınıflandırılması",
+      "Bakım anında süreklilik senaryolarının planlanması",
+      "UPS izleme ve alarm entegrasyonunun kurulması",
+    ],
+    deliverables: ["UPS mimari tasarım notu", "Yedeklilik ve bypass senaryosu", "Kritik yük besleme matrisi", "Alarm ve izleme entegrasyon listesi"],
+  },
+  {
+    slug: "jenerator-yedek-guc-altyapisi",
+    title: "Jeneratör ve Yedek Güç Altyapısı",
+    summary: "Şebeke kesintilerine karşı jeneratör, transfer panosu, yakıt sistemi ve yedek güç senaryolarının planlanması.",
+    heroSubtitle: "Veri merkezlerinde enerji sürekliliği için şebeke dışı çalışma ve yedek güç senaryolarını tasarlıyoruz.",
+    scopeTitles: ["Jeneratör Kapasitesi", "Transfer Sistemi", "Yakıt Sürekliliği", "Test Prosedürleri", "UPS Koordinasyonu"],
+    scopeItems: ["Jeneratör kapasite ve çalışma senaryosunun belirlenmesi", "ATS ve transfer sistemi prensiplerinin planlanması", "Yakıt ve operasyon sürekliliği yaklaşımının oluşturulması", "Yedek güç test prosedürlerinin hazırlanması", "UPS ve jeneratör koordinasyonunun sağlanması"],
+    deliverables: ["Yedek güç konsept tasarımı", "Transfer senaryosu ve test planı", "Yakıt ve süreklilik kapsam notu", "Bakım ve periyodik kontrol önerileri"],
+  },
+  {
+    slug: "rack-kabinet-pdu-altyapisi",
+    title: "Rack, Kabinet ve PDU Altyapısı",
+    summary: "Rack yerleşimi, kabinet güç dağıtımı, A/B besleme mimarisi, akıllı PDU ve yük dengeleme çözümleri.",
+    heroSubtitle: "Rack seviyesinde güç, kablolama, erişim ve izleme ihtiyaçlarını bütünleşik bir altyapı olarak ele alıyoruz.",
+    scopeTitles: ["Rack Yerleşimi", "PDU ve Besleme", "Kablo Yönetimi", "Yük Dengeleme", "Akıllı İzleme"],
+    scopeItems: ["Rack ve kabinet yerleşim prensiplerinin belirlenmesi", "PDU seçimi ve A/B besleme dağılımının planlanması", "Kabin içi enerji ve kablo yönetiminin düzenlenmesi", "Yük dengeleme ve kapasite planlamasının yapılması", "Akıllı PDU izleme entegrasyonunun kurulması"],
+    deliverables: ["Rack yerleşim ve bağlantı matrisi", "PDU ve besleme planı", "Kabin içi kablo yönetim notları", "Yük ve kritik devre dağılım raporu"],
+  },
+  {
+    slug: "veri-merkezi-sogutma-sistemleri",
+    title: "Veri Merkezi Soğutma Sistemleri",
+    summary: "Chiller, CRAC/CRAH, in-row cooling, fan-coil, hassas klima ve soğutma kapasitesi planlaması.",
+    heroSubtitle: "Kritik yüklerin termal güvenliği için soğutma kapasitesini, hava akışını ve operasyon koşullarını birlikte planlıyoruz.",
+    scopeTitles: ["Isı Yükü", "Soğutma Seçenekleri", "Yedeklilik", "Sıcak Nokta", "Alarm Entegrasyonu"],
+    scopeItems: ["Mevcut ve hedef ısı yükünün değerlendirilmesi", "Hassas klima, CRAC, CRAH ve in-row seçeneklerinin karşılaştırılması", "Soğutma yedekliliği ve kapasite planlamasının yapılması", "Sıcak nokta risklerinin azaltılması", "Soğutma izleme ve alarm entegrasyonunun kurulması"],
+    deliverables: ["Soğutma kapasite değerlendirmesi", "Cihaz yerleşim ve hava akışı notları", "Sıcak nokta risk raporu", "İzleme noktaları önerisi"],
+  },
+  {
+    slug: "hava-akisi-containment-cozumleri",
+    title: "Hava Akışı ve Containment Çözümleri",
+    summary: "Sıcak/soğuk koridor, containment, hava kaçakları, basınç farkları ve sıcak nokta risklerinin yönetimi.",
+    heroSubtitle: "Veri merkezlerinde doğru hava akışıyla soğutma performansını artırıyor, enerji kaybını azaltıyoruz.",
+    scopeTitles: ["Koridor Ayrımı", "Containment", "Kaçak Tespiti", "Basınç ve Debi", "Termal Doğrulama"],
+    scopeItems: ["Sıcak ve soğuk koridor ayrımının planlanması", "Containment tasarım ve performansının değerlendirilmesi", "Hava kaçak noktalarının tespit edilmesi", "Basınç farkı ve hava debisi yaklaşımının kurulması", "Performansın termal testlerle doğrulanması"],
+    deliverables: ["Hava akışı iyileştirme notu", "Containment kapsam önerisi", "Sıcak nokta ve kaçak hava tespit çıktısı", "Ölçüm ve raporlama formatı"],
+  },
+  {
+    slug: "fiber-cat6-kablolama-altyapisi",
+    title: "Fiber ve Cat6 Kablolama Altyapısı",
+    summary: "Server, switch, patch panel, core switch, network omurgası, fiber optik ve bakır kablolama topolojisi.",
+    heroSubtitle: "Veri merkezlerinde düzenli, izlenebilir ve ölçeklenebilir network kablolama altyapıları kuruyoruz.",
+    scopeTitles: ["Kablo Güzergahları", "Patch Planı", "Bağlantı Topolojisi", "Etiketleme", "Test ve Teslim"],
+    scopeItems: ["Fiber optik ve bakır kablolama güzergahlarının planlanması", "Patch panel ve core switch bağlantı planının hazırlanması", "Sunucular arası bağlantı topolojisinin oluşturulması", "Etiketleme ve kablo yönetimi standardının kurulması", "Test, ölçüm ve teslim dokümantasyonunun hazırlanması"],
+    deliverables: ["Fiber ve Cat6 bağlantı matrisi", "Kablo güzergah ve patch planı", "Etiketleme standardı önerisi", "Test ve ölçüm rapor formatı"],
+  },
+  {
+    slug: "network-sistem-odasi-altyapisi",
+    title: "Network ve Sistem Odası Altyapısı",
+    summary: "Switch, router, firewall, kabin içi bağlantılar, ağ omurgası ve sistem odası düzeninin planlanması.",
+    heroSubtitle: "Ağ altyapısını, sistem odası düzenini ve veri akışını operasyonel süreklilik hedefiyle yapılandırıyoruz.",
+    scopeTitles: ["Ağ Mimarisi", "Güvenlik Cihazları", "Kabin Bağlantıları", "Ortam İhtiyaçları", "Dokümantasyon"],
+    scopeItems: ["Core ve access switch mimarisinin planlanması", "Firewall, router ve güvenlik cihazlarının yerleştirilmesi", "Kabin içi bağlantı düzeninin oluşturulması", "Sistem odası enerji ve soğutma ihtiyaçlarının belirlenmesi", "Dokümantasyon ve etiketleme yapısının kurulması"],
+    deliverables: ["Network altyapı kapsam notu", "Rack ve switch bağlantı haritası", "Sistem odası düzen önerisi", "Etiketleme ve envanter formatı"],
+  },
+  {
+    slug: "veri-merkezi-izleme-alarm-yonetimi",
     title: "Veri Merkezi İzleme ve Alarm Yönetimi",
-    scopeTitles: ["Çevresel İzleme", "Enerji İzleme", "Alarm Sınıfları", "Operasyon Raporları"],
-    scopeItems: [
-      "Sıcaklık, nem, basınç, kaçak, kapı ve enerji durumlarının sürekli izlenmesi",
-      "UPS, PDU, klima, sensör ve sayaç verilerinin merkezi olarak toplanması",
-      "Kritik, uyarı ve bilgilendirme alarm seviyelerinin kurgulanması",
-      "DCIM ve SCADA altyapılarıyla izlenebilir operasyon veri akışı",
-    ],
+    summary: "Sıcaklık, nem, kaçak, kapı, enerji, UPS, PDU ve klima verilerinin merkezi olarak izlenmesi.",
+    heroSubtitle: "Kritik altyapı verilerini görünür hale getirerek olaylara hızlı müdahale ve güvenilir operasyon sağlıyoruz.",
+    scopeTitles: ["İzleme Noktaları", "Ekipman Alarmları", "Olay Takibi", "Bildirimler", "Dashboard"],
+    scopeItems: ["Çevresel sensör ve enerji izleme noktalarının belirlenmesi", "UPS, PDU ve klima alarm entegrasyonunun kurulması", "Kapı, kaçak ve güvenlik olaylarının takip edilmesi", "Alarm önceliklendirme ve bildirim senaryolarının hazırlanması", "Dashboard ve raporlama altyapısının oluşturulması"],
+    deliverables: ["İzleme noktaları listesi", "Alarm matrisi", "Dashboard kapsam notu", "Bildirim ve raporlama senaryosu"],
   },
   {
-    slug: "guvenlik-ve-erisim-kontrolu",
-    title: "Veri Merkezi Güvenlik ve Erişim Kontrolü",
-    scopeTitles: ["Kritik Alan Güvenliği", "Yetkili Geçiş", "Ziyaretçi Takibi", "Kamera Entegrasyonu"],
-    scopeItems: [
-      "Veri salonu, teknik oda ve operasyon alanlarına yetkili erişim",
-      "Kartlı, biyometrik ve çok faktörlü erişim senaryoları",
-      "Geçiş logları, ziyaretçi yönetimi ve güvenlik raporları",
-      "PACS, CCTV ve X-Ray sistemleriyle bütünleşik güvenlik yapısı",
-    ],
-  },
-  {
-    slug: "otomasyon-cozumleri",
+    slug: "veri-merkezi-otomasyon-cozumleri",
     title: "Veri Merkezi Otomasyon Çözümleri",
-    scopeTitles: ["Otomasyon Mimarisi", "BMS ve SCADA", "Kontrol Senaryoları", "Veri Yönetimi"],
-    scopeItems: [
-      "Mekanik, elektrik ve çevresel sistemlerden operasyon verisi toplanması",
-      "Soğutma, alarm, enerji ve güvenlik sistemlerinin merkezi izlemeye bağlanması",
-      "Modbus, BACnet, SNMP ve MQTT protokolleriyle entegrasyon",
-      "Kesintisiz operasyon için görünürlük ve hızlı müdahale altyapısı",
-    ],
+    summary: "BMS, SCADA, sensör verileri, alarm senaryoları ve teknik sistemlerin merkezi kontrol altyapısı.",
+    heroSubtitle: "Mekanik, elektrik, güvenlik ve çevresel sistemleri otomasyon altyapısı ile merkezi ve izlenebilir hale getiriyoruz.",
+    scopeTitles: ["BMS ve SCADA", "Saha Ekipmanları", "Alarm Senaryoları", "Veri Toplama", "Operatör Arayüzü"],
+    scopeItems: ["BMS ve SCADA entegrasyon yaklaşımının oluşturulması", "Saha sensörleri ve kontrol ekipmanlarının bağlanması", "Alarm, senaryo ve otomatik bildirim mantığının kurulması", "Veri toplama ve raporlama altyapısının hazırlanması", "Operasyonel arayüz ve kullanıcı yetkilendirmesinin tasarlanması"],
+    deliverables: ["Otomasyon mimari notu", "Sistem entegrasyon listesi", "Alarm ve senaryo matrisi", "Operatör ekranı kapsam önerisi"],
+  },
+  {
+    slug: "fiziksel-guvenlik-erisim-kontrolu",
+    title: "Fiziksel Güvenlik ve Erişim Kontrolü",
+    summary: "Kartlı geçiş, biyometrik erişim, CCTV, kapı sensörleri, yetkilendirme ve kayıt altına alma sistemleri.",
+    heroSubtitle: "Veri salonu ve teknik hacimlerde yetkisiz erişim riskini azaltan entegre güvenlik çözümleri sunuyoruz.",
+    scopeTitles: ["Geçiş Sistemleri", "CCTV", "Kapı Güvenliği", "Erişim Kayıtları", "Entegrasyon"],
+    scopeItems: ["Kartlı ve biyometrik geçiş sistemlerinin kurulması", "CCTV ve olay kayıt altyapısının planlanması", "Kapı sensörü ve yetkilendirme senaryolarının hazırlanması", "Ziyaretçi ve personel erişim kayıtlarının yönetilmesi", "Güvenlik sistemi entegrasyonlarının gerçekleştirilmesi"],
+    deliverables: ["Erişim kontrol senaryosu", "CCTV ve güvenlik kapsam planı", "Yetkilendirme ve kayıt matrisi", "Entegrasyon notları"],
+  },
+  {
+    slug: "yangin-algilama-sondurme-sistemleri",
+    title: "Yangın Algılama ve Söndürme Sistemleri",
+    summary: "Yangın algılama, gazlı söndürme, erken duman algılama, alarm entegrasyonu ve acil durum senaryoları.",
+    heroSubtitle: "Kritik ekipmanları ve operasyon sürekliliğini korumak için veri merkezlerine uygun yangın güvenliği yaklaşımı.",
+    scopeTitles: ["Erken Uyarı", "Gazlı Söndürme", "Alarm Entegrasyonu", "Acil Durum", "Periyodik Kontrol"],
+    scopeItems: ["Yangın algılama ve erken uyarı prensiplerinin belirlenmesi", "Gazlı söndürme ve teknik hacim ihtiyaçlarının planlanması", "Alarm ve otomasyon entegrasyonunun kurulması", "Acil durum senaryolarının hazırlanması", "Test ve periyodik kontrol yaklaşımının oluşturulması"],
+    deliverables: ["Yangın güvenliği kapsam notu", "Algılama ve söndürme entegrasyon listesi", "Acil durum senaryo matrisi", "Test ve bakım kontrol listesi"],
+  },
+  {
+    slug: "topraklama-parafudr-sistemleri",
+    title: "Topraklama ve Parafudr Sistemleri",
+    summary: "Ekipman güvenliği için topraklama, eşpotansiyel bağlantı, SPD/parafudr ve kaçak akım koruma altyapısı.",
+    heroSubtitle: "Kritik elektronik ekipmanları gerilim darbeleri, kaçak akımlar ve topraklama risklerine karşı koruyoruz.",
+    scopeTitles: ["Topraklama", "SPD Kademeleri", "Ekipman Koruma", "Ölçüm", "Periyodik Kontrol"],
+    scopeItems: ["Topraklama ve eşpotansiyel bağlantı yaklaşımının kurulması", "SPD ve parafudr koruma kademelerinin belirlenmesi", "Pano ve ekipman koruma prensiplerinin uygulanması", "Ölçüm ve uygunluk kontrolünün gerçekleştirilmesi", "Bakım ve periyodik kontrol önerilerinin hazırlanması"],
+    deliverables: ["Topraklama kapsam notu", "SPD ve parafudr yerleşim önerisi", "Ölçüm ve kontrol rapor formatı", "Risk ve iyileştirme önerileri"],
+  },
+  {
+    slug: "test-devreye-alma-commissioning",
+    title: "Test, Devreye Alma ve Commissioning",
+    summary: "Enerji, soğutma, kablolama, izleme, alarm ve operasyon senaryolarının sahada test edilmesi.",
+    heroSubtitle: "Teslim öncesinde sistemlerin gerçek çalışma koşullarına uygunluğunu test ediyor ve doğruluyoruz.",
+    scopeTitles: ["Enerji Testleri", "Termal Doğrulama", "Kablolama Testi", "Alarm Testleri", "Final Kabul"],
+    scopeItems: ["Enerji ve UPS testlerinin gerçekleştirilmesi", "Soğutma ve hava akışının doğrulanması", "Fiber ve Cat6 testleri ile etiket kontrolünün yapılması", "Alarm, sensör ve izleme testlerinin yürütülmesi", "Final kabul ve raporlama sürecinin tamamlanması"],
+    deliverables: ["Commissioning test planı", "Kontrol listeleri ve test kayıtları", "Eksik ve uygunsuzluk takip listesi", "Final kabul raporu"],
+  },
+  {
+    slug: "enerji-verimliligi-pue-optimizasyonu",
+    title: "Enerji Verimliliği ve PUE Optimizasyonu",
+    summary: "Enerji tüketimi, soğutma verimliliği, kapasite kullanımı ve operasyonel maliyetlerin optimize edilmesi.",
+    heroSubtitle: "Veri merkezlerinde enerji tüketimini görünür hale getiriyor, verimlilik ve kapasite kullanımını iyileştiriyoruz.",
+    scopeTitles: ["Tüketim Analizi", "Soğutma Verimi", "PUE Yaklaşımı", "Kapasite İzleme", "Maliyet Optimizasyonu"],
+    scopeItems: ["Enerji tüketim ve yük dağılım analizinin yapılması", "Soğutma verimliliğinin değerlendirilmesi", "PUE yaklaşımı ve iyileştirme fırsatlarının belirlenmesi", "Kapasite kullanımının izlenmesi", "Operasyonel maliyet optimizasyon önerilerinin hazırlanması"],
+    deliverables: ["Enerji verimliliği analiz raporu", "PUE iyileştirme önerileri", "Tüketim ve trend dashboard kapsamı", "Önceliklendirilmiş aksiyon listesi"],
+  },
+  {
+    slug: "bakim-operasyon-periyodik-kontrol",
+    title: "Bakım, Operasyon ve Periyodik Kontrol",
+    summary: "Veri merkezi altyapısının düzenli kontrolü, arıza müdahalesi, bakım planları ve operasyon sürekliliği.",
+    heroSubtitle: "Veri merkezi altyapılarının güvenilir çalışması için bakım, kontrol ve operasyon süreçlerini planlıyoruz.",
+    scopeTitles: ["Bakım Planı", "Arıza Müdahale", "Ekipman Kontrolü", "Operasyon Kayıtları", "Sürekli İyileştirme"],
+    scopeItems: ["Periyodik bakım ve kontrol planlamasının yapılması", "Arıza müdahale ve servis süreçlerinin oluşturulması", "UPS, PDU, klima, sensör ve kablolamanın kontrol edilmesi", "Operasyon kayıtları ve raporlama sisteminin kurulması", "Sürekli iyileştirme önerilerinin hazırlanması"],
+    deliverables: ["Bakım planı ve kontrol listeleri", "Servis ve arıza kayıt formatı", "Periyodik kontrol raporu", "İyileştirme ve risk aksiyon listesi"],
   },
 ]);
 

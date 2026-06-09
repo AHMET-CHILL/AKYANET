@@ -3,13 +3,17 @@ import type { Project } from "@/lib/project-data";
 
 // ProjectCard, proje listelerinde tekrar kullanılan görsel, etiket ve CTA düzenini oluşturur.
 export default function ProjectCard({ project }: { project: Project }) {
+  const isTurkTelekom = project.logo === "/reference-turk-telekom.svg";
+
   return (
     <article className="group flex h-full flex-col bg-white">
       <Link className="relative block aspect-video overflow-hidden bg-deep-navy" href={`/projeler/${project.status}/${project.slug}`}>
         <div className="absolute inset-0 bg-white/[0.03]" />
         <img
           alt={`${project.title} kurum logosu`}
-          className="absolute left-1/2 top-1/2 max-h-[42%] w-auto max-w-[68%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-95 transition-transform duration-500 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:scale-105"
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-contain opacity-95 transition-transform duration-500 group-hover:-translate-x-1/2 group-hover:-translate-y-1/2 group-hover:scale-105 ${
+            isTurkTelekom ? "max-h-[58%] w-[78%]" : "max-h-[42%] w-auto max-w-[68%]"
+          }`}
           src={project.logo}
         />
         <div className="absolute inset-x-0 bottom-0 h-px bg-metallic-gold/60" />

@@ -249,7 +249,7 @@ function SolutionsDropdown() {
                           <p className="mb-4 font-label-caps text-[12px] uppercase tracking-[0.12em] text-metallic-gold">
                             {item.label} Alt Çözümleri
                           </p>
-                          <ul className="max-h-[360px] space-y-1 overflow-y-auto pr-1">
+                          <ul className="max-h-[calc(100vh-190px)] space-y-1 overflow-y-auto overscroll-contain pr-2">
                             {children.map((solution) => (
                               <li key={solution.slug}>
                                 <a
