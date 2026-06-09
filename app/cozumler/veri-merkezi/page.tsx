@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SubSolutionGrid from "@/components/SubSolutionGrid";
+import VerimetBrandCard from "@/components/VerimetBrandCard";
 
 // metadata, Veri Merkezi sayfasının arama motoru başlık ve açıklamasını tanımlar.
 export const metadata: Metadata = {
@@ -185,6 +186,7 @@ export default function DataCenterPage() {
       </section>
 
       <SubSolutionGrid parentSlug="veri-merkezi" />
+      <VerimetBrandCard />
 
       <section className="bg-deep-navy px-margin-mobile py-24 text-center text-white md:px-margin-desktop md:py-section-padding">
         <div className="mx-auto max-w-4xl">

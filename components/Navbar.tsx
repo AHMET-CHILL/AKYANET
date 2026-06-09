@@ -6,6 +6,7 @@ import { navigationLinks, solutionMenuGroups } from "@/lib/site-data";
 import { sectorMenuGroups } from "@/lib/sector-data";
 import { getSubSolutionsByParent } from "@/lib/sub-solutions";
 import { getProjectsByStatus } from "@/lib/project-data";
+import { verimetContent } from "@/lib/verimet-data";
 
 // Navbar, scroll durumuna göre arka planı güçlendirir ve mobil menüyü yönetir.
 export default function Navbar() {
@@ -230,14 +231,15 @@ function SolutionsDropdown() {
             <div className="min-h-[230px] border-l border-white/10 p-7 first:border-l-0" key={group.title}>
               <h3 className="mb-5 font-label-caps text-[14px] uppercase tracking-[0.12em] text-metallic-gold">{group.title}</h3>
               <ul className="space-y-2">
-                {group.items.map((item) => {
+                {group.items.map((item, itemIndex) => {
                   const parentSlug = getSlugFromHref(item.href);
-                  const children = getSubSolutionsByParent(parentSlug);
+                  const children = getSolutionMenuChildren(parentSlug);
+                  const hasLongSubmenu = children.length > 10;
 
                   return (
                     <li className="group/item relative" key={item.label}>
                       <a
-                        className="flex min-h-10 items-center justify-between gap-3 px-3 py-2 font-body-md text-[15px] text-surface-container-lowest/85 transition-colors group-hover/item:bg-white/10 group-hover/item:text-metallic-gold"
+                        className="flex min-h-10 items-center justify-between gap-3 border-l-2 border-transparent px-3 py-2 font-body-md text-[15px] text-surface-container-lowest/85 transition-all duration-200 group-hover/item:border-metallic-gold group-hover/item:bg-white/5 group-hover/item:text-white"
                         href={item.href}
                       >
                         {item.label}
@@ -245,16 +247,23 @@ function SolutionsDropdown() {
                       </a>
 
                       {children.length > 0 ? (
-                        <div className="invisible absolute left-full top-0 z-30 w-[390px] translate-y-2 border border-white/10 bg-deep-navy p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover/item:visible group-hover/item:translate-y-0 group-hover/item:opacity-100 group-focus-within/item:visible group-focus-within/item:translate-y-0 group-focus-within/item:opacity-100">
+                        <div
+                          className="invisible absolute left-full z-30 max-h-[calc(100vh-116px)] w-[410px] translate-y-2 overflow-y-auto overscroll-contain border border-white/10 bg-deep-navy p-6 opacity-0 shadow-2xl transition-all duration-200 group-hover/item:visible group-hover/item:translate-y-0 group-hover/item:opacity-100 group-focus-within/item:visible group-focus-within/item:translate-y-0 group-focus-within/item:opacity-100"
+                          style={{ top: hasLongSubmenu ? `${-(76 + itemIndex * 48)}px` : "0px" }}
+                        >
                           <p className="mb-4 font-label-caps text-[12px] uppercase tracking-[0.12em] text-metallic-gold">
                             {item.label} Alt Çözümleri
                           </p>
-                          <ul className="max-h-[calc(100vh-190px)] space-y-1 overflow-y-auto overscroll-contain pr-2">
+                          <ul className="space-y-1 pr-2">
                             {children.map((solution) => (
                               <li key={solution.slug}>
                                 <a
-                                  className="block border-l-2 border-transparent px-4 py-2.5 text-sm leading-5 text-surface-container-lowest/80 transition-colors hover:border-metallic-gold hover:bg-white/5 hover:text-white"
-                                  href={`/cozumler/${solution.parentSlug}/${solution.slug}`}
+                                  className={`block border-l-2 px-4 py-2.5 text-sm leading-5 transition-colors ${
+                                    solution.isBrand
+                                      ? "mt-3 border-metallic-gold bg-white/5 font-semibold text-metallic-gold hover:bg-white/10 hover:text-white"
+                                      : "border-transparent text-surface-container-lowest/80 hover:border-metallic-gold hover:bg-white/5 hover:text-white"
+                                  }`}
+                                  href={solution.href}
                                 >
                                   {solution.title}
                                 </a>
@@ -293,6 +302,30 @@ function getSlugFromHref(href: string) {
   return href.split("/").filter(Boolean).at(-1) ?? "";
 }
 
+// getSolutionMenuChildren, teknik alt çözümleri ve yalnızca Veri Merkezi için Verimet marka sayfasını menü modelinde birleştirir.
+function getSolutionMenuChildren(parentSlug: string) {
+  const technicalSolutions = getSubSolutionsByParent(parentSlug).map((solution) => ({
+    slug: solution.slug,
+    title: solution.title,
+    href: `/cozumler/${solution.parentSlug}/${solution.slug}`,
+    isBrand: false,
+  }));
+
+  if (parentSlug !== "veri-merkezi") {
+    return technicalSolutions;
+  }
+
+  return [
+    ...technicalSolutions,
+    {
+      slug: "verimet",
+      title: verimetContent.title,
+      href: verimetContent.href,
+      isBrand: true,
+    },
+  ];
+}
+
 // SectorsDropdown, masaüstünde Sektörler bağlantısı altında hedef alanları üç kolonda gösterir.
 function SectorsDropdown() {
   return (
@@ -305,7 +338,7 @@ function SectorsDropdown() {
               {group.items.map((item) => (
                 <li key={item.href}>
                   <a
-                    className="inline-flex font-body-md text-[16px] text-surface-container-lowest/85 transition-all duration-200 hover:translate-x-1 hover:text-metallic-gold"
+                    className="flex min-h-10 w-full items-center border-l-2 border-transparent px-3 py-2 font-body-md text-[16px] text-surface-container-lowest/85 transition-all duration-200 hover:border-metallic-gold hover:bg-white/5 hover:text-white"
                     href={item.href}
                   >
                     {item.label}
@@ -389,7 +422,7 @@ function MobileSolutionsMenu({ closeMenu }: { closeMenu: () => void }) {
           <div className="space-y-2">
             {group.items.map((item) => {
               const parentSlug = getSlugFromHref(item.href);
-              const children = getSubSolutionsByParent(parentSlug);
+              const children = getSolutionMenuChildren(parentSlug);
               const isOpen = openSolutionSlug === parentSlug;
 
               return (
@@ -415,8 +448,10 @@ function MobileSolutionsMenu({ closeMenu }: { closeMenu: () => void }) {
                     <div className="ml-3 mt-2 space-y-1 border-l border-white/15 pl-3">
                       {children.map((solution) => (
                         <a
-                          className="block py-2 text-[13px] leading-5 text-surface-container-lowest/70"
-                          href={`/cozumler/${solution.parentSlug}/${solution.slug}`}
+                          className={`block py-2 text-[13px] leading-5 ${
+                            solution.isBrand ? "font-semibold text-metallic-gold" : "text-surface-container-lowest/70"
+                          }`}
+                          href={solution.href}
                           key={solution.slug}
                           onClick={closeMenu}
                         >
