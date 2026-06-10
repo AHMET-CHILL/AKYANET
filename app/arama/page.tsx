@@ -55,7 +55,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <div className="mx-auto max-w-container-max">
           {!query.trim() ? (
             <EmptyState
-              description="Çözümler, projeler, sektörler, referanslar ve teknik içerikler içinde aramak için bir kelime yazın."
+              description="Çözümler, sektörler, referanslar ve teknik içerikler içinde aramak için bir kelime yazın."
               title="Arama kelimesi bekleniyor"
             />
           ) : results.length === 0 ? (

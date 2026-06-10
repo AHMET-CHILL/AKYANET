@@ -79,8 +79,8 @@ function HeroSection() {
         <h1 className="mx-auto mb-5 max-w-5xl font-display-lg text-[40px] font-extrabold uppercase leading-[1.04] md:mb-6 md:text-display-lg">
           İşinizi dijital geleceğe taşıyan uçtan uca teknoloji ortağı
         </h1>
-        <p className="mx-auto mb-8 max-w-3xl text-lg font-semibold leading-7 text-primary-fixed-dim md:mb-10 md:font-headline-sm md:text-headline-sm">
-          Strateji, yazılım, otomasyon, veri ve bulut çözümlerini sade bir teslim modeliyle bir araya getiriyoruz.
+        <p className="mx-auto mb-8 max-w-4xl text-lg font-semibold leading-7 text-white md:mb-10 md:font-headline-sm md:text-headline-sm">
+          Veri merkezi, enerji, soğutma, zayıf akım ve yazılım altyapılarını; saha ekiplerimizle kuruyor, entegre ediyor ve devreye alıyoruz.
         </p>
         <div className="mx-auto flex w-full max-w-sm flex-col items-stretch justify-center gap-3 md:max-w-none md:flex-row md:items-center md:gap-6">
           <a
@@ -117,7 +117,7 @@ function ExpertiseSection() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12">
           {solutionPages.map((card, index) => (
             <article
-              className={`group relative min-h-[360px] overflow-hidden ${index === 0 || index === 1 ? "lg:col-span-6 lg:h-[430px]" : "lg:col-span-4 lg:h-[390px]"}`}
+              className={`group relative min-h-[360px] overflow-hidden ${card.cardDescription ? "max-md:min-h-[480px]" : ""} ${index === 0 || index === 1 ? "lg:col-span-6 lg:h-[430px]" : "lg:col-span-4 lg:h-[390px]"}`}
               key={card.title}
             >
               <img alt={`${card.title} çözümünü temsil eden görsel`} className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" src={card.image} />
@@ -130,8 +130,8 @@ function ExpertiseSection() {
                 <h3 className="mb-5 font-headline-sm text-[24px] font-bold uppercase leading-tight text-surface-container-lowest md:mb-8 md:text-[28px]">
                   {card.title}
                 </h3>
-                <p className="mb-6 max-w-xl line-clamp-5 text-[15px] font-semibold leading-7 text-white">
-                  {card.summary} {card.intro.split(".")[0]}.
+                <p className={`mb-6 max-w-xl text-[15px] font-semibold leading-7 text-white ${card.cardDescription ? "" : "line-clamp-5"}`}>
+                  {card.cardDescription ?? `${card.summary} ${card.intro.split(".")[0]}.`}
                 </p>
                 <a className="mt-auto inline-flex items-center pb-1 font-label-caps text-label-caps text-metallic-gold transition-colors hover:text-white" href={`/cozumler/${card.slug}`}>
                   DETAYLARI GÖR
@@ -331,11 +331,23 @@ function ContactSection() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-start gap-4">
                 <MailIcon />
-                <a className="text-on-surface transition-colors hover:text-metallic-gold" href="mailto:info@akyadijital.com">
-                  info@akyadijital.com
-                </a>
+                <div>
+                  <p className="mb-1 font-label-caps text-sm uppercase text-metallic-gold">Mail</p>
+                  <a className="text-on-surface transition-colors hover:text-metallic-gold" href="mailto:info@akya.net">
+                    info@akya.net
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <PhoneIcon />
+                <div>
+                  <p className="mb-1 font-label-caps text-sm uppercase text-metallic-gold">Telefon</p>
+                  <a className="text-on-surface transition-colors hover:text-metallic-gold" href="tel:+903125112222">
+                    0312 511 22 22
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -379,6 +391,20 @@ function MailIcon() {
     <svg aria-hidden="true" className="h-6 w-6 shrink-0 text-metallic-gold" fill="none" viewBox="0 0 24 24">
       <path d="M3 6.5h18v11H3v-11Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.8" />
       <path d="m4 8 8 6 8-6" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+// PhoneIcon, telefon bilgisini cihazın arama özelliğiyle ilişkilendiren simgeyi çizer.
+function PhoneIcon() {
+  return (
+    <svg aria-hidden="true" className="mt-1 h-6 w-6 shrink-0 text-metallic-gold" fill="none" viewBox="0 0 24 24">
+      <path
+        d="M7.2 3.5 10 7.1 8.3 9.4a15.1 15.1 0 0 0 6.3 6.3L16.9 14l3.6 2.8-.8 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.9 3.1 14.5 2.6 6.1c0-.9.6-1.6 1.4-1.8l3.2-.8Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
     </svg>
   );
 }

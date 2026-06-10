@@ -39,11 +39,24 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-start gap-4">
                   <MailIcon />
-                  <a className="text-on-surface transition-colors hover:text-metallic-gold" href="mailto:info@akyadijital.com">
-                    info@akyadijital.com
-                  </a>
+                  <div>
+                    <p className="mb-2 font-label-caps text-sm uppercase text-metallic-gold">Mail</p>
+                    <a className="text-on-surface transition-colors hover:text-metallic-gold" href="mailto:info@akya.net">
+                      info@akya.net
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <PhoneIcon />
+                  <div>
+                    <p className="mb-2 font-label-caps text-sm uppercase text-metallic-gold">Telefon</p>
+                    <a className="text-on-surface transition-colors hover:text-metallic-gold" href="tel:+903125112222">
+                      0312 511 22 22
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -89,6 +102,20 @@ function MailIcon() {
     <svg aria-hidden="true" className="h-6 w-6 shrink-0 text-metallic-gold" fill="none" viewBox="0 0 24 24">
       <path d="M3 6.5h18v11H3v-11Z" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.8" />
       <path d="m4 8 8 6 8-6" stroke="currentColor" strokeLinejoin="round" strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+// PhoneIcon, telefon numarasını mobil cihazlarda doğrudan aranabilir bir satırla destekler.
+function PhoneIcon() {
+  return (
+    <svg aria-hidden="true" className="mt-1 h-6 w-6 shrink-0 text-metallic-gold" fill="none" viewBox="0 0 24 24">
+      <path
+        d="M7.2 3.5 10 7.1 8.3 9.4a15.1 15.1 0 0 0 6.3 6.3L16.9 14l3.6 2.8-.8 3.2c-.2.8-.9 1.4-1.8 1.4C9.5 20.9 3.1 14.5 2.6 6.1c0-.9.6-1.6 1.4-1.8l3.2-.8Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
     </svg>
   );
 }

@@ -34,7 +34,7 @@ export default function UnderConstructionBanner() {
               Geliştirme Aşamasında
             </strong>
             <span className="text-white/90">
-              Bu web sitesi geliştirme aşamasındadır. İçerikler, projeler ve teknik sayfalar güncellenmeye devam etmektedir.
+              Bu web sitesi geliştirme aşamasındadır. İçerikler, referanslar ve teknik sayfalar güncellenmeye devam etmektedir.
             </span>
           </div>
 

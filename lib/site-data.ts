@@ -16,6 +16,7 @@ export type SolutionPage = {
   group: string;
   title: string;
   summary: string;
+  cardDescription?: string;
   intro: string;
   challenge: string;
   image: string;
@@ -77,6 +78,8 @@ export const solutionPages: SolutionPage[] = [
     group: "Dijital Altyapılar",
     title: "Veri Merkezi",
     summary: "Kritik iş yükleri için ölçeklenebilir, güvenli ve izlenebilir veri merkezi altyapıları tasarlarız.",
+    cardDescription:
+      "AKYA Group, veri merkezi projelerinde yalnızca tasarım değil; saha uygulaması, enerji altyapısı, soğutma kurulumu, kablolama, PDU entegrasyonu, yazılım bağlantıları ve devreye alma süreçlerini de kendi ekipleriyle yürütür. Projeleri planlama aşamasından çalışır teslim noktasına kadar bütünleşik bir yaklaşımla ele alır.",
     intro: "Veri merkezi projelerinde yalnızca kabinet, enerji ve soğutma bileşenlerini değil; büyüme planını, operasyon sürekliliğini, izleme mimarisini ve bakım erişilebilirliğini birlikte ele alırız.",
     challenge: "Kesinti toleransı düşük tesislerde kapasite planı, güç yedekliliği, soğutma dengesi ve fiziksel güvenlik kararları birbirinden kopuk ilerlediğinde işletme maliyeti artar ve arıza riskleri görünmez kalır.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=85",

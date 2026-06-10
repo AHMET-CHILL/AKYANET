@@ -80,17 +80,30 @@ export default function Footer() {
         <div>
           <h2 className="mb-6 font-label-caps text-label-caps uppercase text-metallic-gold">İletişim</h2>
           <address className="space-y-4 not-italic">
-            <p className="font-body-md text-primary-fixed-dim">
-              1552. Sokak, Çiğdem Mahallesi, No:1, Kat:4, Çankaya, Ankara, Türkiye
-            </p>
-            <p>
+            <div>
+              <p className="mb-1 font-label-caps text-xs uppercase text-metallic-gold">Lokasyon</p>
+              <p className="font-body-md text-primary-fixed-dim">
+                1552. Sokak, Çiğdem Mahallesi, No:1, Kat:4, Çankaya, Ankara, Türkiye
+              </p>
+            </div>
+            <div>
+              <p className="mb-1 font-label-caps text-xs uppercase text-metallic-gold">Mail</p>
               <a
                 className="font-body-md text-primary-fixed-dim transition-colors duration-200 hover:text-metallic-gold"
-                href="mailto:info@akyadijital.com"
+                href="mailto:info@akya.net"
               >
-                info@akyadijital.com
+                info@akya.net
               </a>
-            </p>
+            </div>
+            <div>
+              <p className="mb-1 font-label-caps text-xs uppercase text-metallic-gold">Telefon</p>
+              <a
+                className="font-body-md text-primary-fixed-dim transition-colors duration-200 hover:text-metallic-gold"
+                href="tel:+903125112222"
+              >
+                0312 511 22 22
+              </a>
+            </div>
             <p>
               <a
                 className="font-body-md text-primary-fixed-dim transition-colors duration-200 hover:text-metallic-gold" href="/iletisim"
