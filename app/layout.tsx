@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  // Bismillah
   openGraph: {
     type: "website",
     locale: "tr_TR",
