@@ -39,7 +39,6 @@ export type CardItem = {
 export const navigationLinks: NavigationLink[] = [
   { label: "Çözümler", href: "/cozumler" },
   { label: "Sektörler", href: "/sektorler" },
-  { label: "Projeler", href: "/projeler" },
   { label: "Referanslar", href: "/referanslar" },
   { label: "Hakkımızda", href: "/hakkimizda" },
 ];

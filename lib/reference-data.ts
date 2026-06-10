@@ -19,9 +19,9 @@ export const references: Reference[] = [
     logo: "/reference-turk-telekom.svg",
     description:
       "Ümitköy yerleşkesindeki veri merkezi için kritik altyapı, saha uygulama, test ve devreye alma çalışmaları.",
-    projectHref: "/projeler/tamamlanan/turk-telekom-umitkoy-veri-merkezi",
+    projectHref: "/referanslar/devam-eden/turk-telekom-umitkoy-veri-merkezi",
     projectLabel: "Türk Telekom Ümitköy Veri Merkezi",
-    statusLabel: "Tamamlanan Proje",
+    statusLabel: "Devam Eden Proje",
   },
   {
     slug: "ptt-genel-merkezi",
@@ -30,8 +30,8 @@ export const references: Reference[] = [
     logo: "/reference-ptt.png",
     description:
       "Kritik dijital operasyonların sürekliliğini destekleyen veri merkezi altyapı ve saha uygulaması çalışmaları.",
-    projectHref: "/projeler/tamamlanan/ptt-genel-merkezi-veri-merkezi",
-    projectLabel: "PTT Genel Merkezi Veri Merkezi",
+    projectHref: "/referanslar/tamamlanan/ptt-veri-merkezi",
+    projectLabel: "PTT Veri Merkezi",
     statusLabel: "Tamamlanan Proje",
   },
   {
@@ -41,7 +41,7 @@ export const references: Reference[] = [
     logo: "/reference-environment-ministry.svg",
     description:
       "Kamu hizmetlerinin dijital sürekliliğine yönelik kritik tesis ve veri merkezi mühendisliği çalışmaları.",
-    projectHref: "/projeler/tamamlanan/cevre-sehircilik-bakanligi-veri-merkezi",
+    projectHref: "/referanslar/tamamlanan/cevre-ve-sehircilik-bakanligi-veri-merkezi",
     projectLabel: "Bakanlık Veri Merkezi Projesi",
     statusLabel: "Tamamlanan Proje",
   },
@@ -52,8 +52,8 @@ export const references: Reference[] = [
     logo: "/reference-rtuk.png",
     description:
       "Veri merkezi kapasitesi, soğutma, enerji ve bağlantı altyapısına yönelik bütünleşik geliştirme çalışmaları.",
-    projectHref: "/projeler/devam-eden/rtuk-veri-merkezi-kapasite-artirimi",
-    projectLabel: "RTÜK Veri Merkezi Altyapı Genişletme",
+    projectHref: "/referanslar/devam-eden/rtuk-veri-merkezi",
+    projectLabel: "RTÜK Veri Merkezi",
     statusLabel: "Devam Eden Proje",
   },
 ];

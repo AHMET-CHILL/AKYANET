@@ -225,7 +225,7 @@ export default function DcimSoftwarePage() {
                 <div className="p-7">
                   <h3 className="mb-4 font-headline-sm text-xl uppercase text-deep-navy">{project.title}</h3>
                   <p className="mb-6 text-on-surface-variant">{project.text}</p>
-                  <a className="font-label-caps text-label-caps text-metallic-gold" href="/projeler">Detayları İncele</a>
+                  <a className="font-label-caps text-label-caps text-metallic-gold" href="/referanslar">Detayları İncele</a>
                 </div>
               </article>
             ))}

@@ -1,5 +1,5 @@
-import { projects } from "@/lib/project-data";
 import { references } from "@/lib/reference-data";
+import { referenceProjects } from "@/lib/reference-project-data";
 import { sectorPages } from "@/lib/sector-data";
 import { solutionPages } from "@/lib/site-data";
 import { subSolutions } from "@/lib/sub-solutions";
@@ -69,12 +69,12 @@ export const searchItems: SearchItem[] = [
     href: `/sektorler/${sector.slug}`,
     keywords: [sector.group, sector.introduction, ...sector.solutions],
   })),
-  ...projects.map((project) => ({
+  ...referenceProjects.map((project) => ({
     category: project.statusLabel,
     title: project.title,
     description: project.summary,
-    href: `/projeler/${project.status}/${project.slug}`,
-    keywords: [...project.tags, ...project.scope, ...project.approach, ...project.values],
+    href: `/referanslar/${project.status}/${project.slug}`,
+    keywords: [project.emphasis, ...project.workItems.flatMap((item) => [item.title, item.description])],
   })),
   ...technicalInsights.map((insight) => ({
     category: "Teknik İçgörü",

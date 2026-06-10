@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { navigationLinks, solutionMenuGroups } from "@/lib/site-data";
 import { sectorMenuGroups } from "@/lib/sector-data";
 import { getSubSolutionsByParent } from "@/lib/sub-solutions";
-import { getProjectsByStatus } from "@/lib/project-data";
+import { getReferenceProjectsByStatus } from "@/lib/reference-project-data";
 import { verimetContent } from "@/lib/verimet-data";
 
 // Navbar, scroll durumuna göre arka planı güçlendirir ve mobil menüyü yönetir.
@@ -78,7 +78,7 @@ export default function Navbar() {
 
                 {link.label === "Çözümler" ? <SolutionsDropdown /> : null}
                 {link.label === "Sektörler" ? <SectorsDropdown /> : null}
-                {link.label === "Projeler" ? <ProjectsDropdown /> : null}
+                {link.label === "Referanslar" ? <ReferencesDropdown /> : null}
               </div>
             );
           })}
@@ -126,7 +126,10 @@ export default function Navbar() {
         <div className="fixed inset-x-0 top-[72px] flex h-[calc(100svh-72px)] flex-col gap-2 overflow-y-auto border-t border-white/15 bg-deep-navy px-margin-mobile pb-8 pt-4 md:hidden">
           {navigationLinks.map((link) => {
             const isActive = isNavigationLinkActive(pathname, link.href);
-            const hasDropdown = link.label === "Çözümler" || link.label === "Sektörler" || link.label === "Projeler";
+            const hasDropdown =
+              link.label === "Çözümler" ||
+              link.label === "Sektörler" ||
+              link.label === "Referanslar";
             const isDropdownOpen = openMobileGroup === link.label;
 
             return (
@@ -156,7 +159,7 @@ export default function Navbar() {
                 )}
                 {link.label === "Çözümler" && isDropdownOpen ? <MobileSolutionsMenu closeMenu={closeMenu} /> : null}
                 {link.label === "Sektörler" && isDropdownOpen ? <MobileSectorsMenu closeMenu={closeMenu} /> : null}
-                {link.label === "Projeler" && isDropdownOpen ? <MobileProjectsMenu closeMenu={closeMenu} /> : null}
+                {link.label === "Referanslar" && isDropdownOpen ? <MobileReferencesMenu closeMenu={closeMenu} /> : null}
               </div>
             );
           })}
@@ -353,38 +356,35 @@ function SectorsDropdown() {
   );
 }
 
-// ProjectsDropdown, masaüstünde tamamlanan ve devam eden projeleri iki kolonlu mega menüde gösterir.
-function ProjectsDropdown() {
-  const completedProjects = getProjectsByStatus("tamamlanan");
-  const ongoingProjects = getProjectsByStatus("devam-eden");
-
+// ReferencesDropdown, referans projelerini tamamlanan ve devam eden olarak iki kolonda listeler.
+function ReferencesDropdown() {
   return (
     <div className="invisible fixed left-1/2 top-[92px] w-[820px] max-w-[calc(100vw-80px)] -translate-x-1/2 translate-y-3 opacity-0 transition-all duration-300 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
       <div className="grid grid-cols-2 border border-white/10 bg-deep-navy/95 shadow-2xl backdrop-blur-md">
-        <ProjectMenuColumn
-          categoryHref="/projeler/tamamlanan"
+        <ReferenceMenuColumn
+          categoryHref="/referanslar/tamamlanan"
           categoryLabel="Tamamlanan Projeler"
-          projects={completedProjects}
+          projects={getReferenceProjectsByStatus("tamamlanan")}
         />
-        <ProjectMenuColumn
-          categoryHref="/projeler/devam-eden"
+        <ReferenceMenuColumn
+          categoryHref="/referanslar/devam-eden"
           categoryLabel="Devam Eden Projeler"
-          projects={ongoingProjects}
+          projects={getReferenceProjectsByStatus("devam-eden")}
         />
       </div>
     </div>
   );
 }
 
-// ProjectMenuColumn, proje mega menüsündeki kategori başlığını ve proje linklerini render eder.
-function ProjectMenuColumn({
+// ReferenceMenuColumn, referans mega menüsündeki kategori ve proje bağlantılarını oluşturur.
+function ReferenceMenuColumn({
   categoryLabel,
   categoryHref,
   projects,
 }: {
   categoryLabel: string;
   categoryHref: string;
-  projects: ReturnType<typeof getProjectsByStatus>;
+  projects: ReturnType<typeof getReferenceProjectsByStatus>;
 }) {
   return (
     <div className="min-h-[220px] border-l border-white/10 p-7 first:border-l-0">
@@ -396,7 +396,7 @@ function ProjectMenuColumn({
           <li key={project.slug}>
             <a
               className="block border-l-2 border-transparent px-3 py-2.5 text-sm leading-5 text-surface-container-lowest/85 transition-colors hover:border-metallic-gold hover:bg-white/5 hover:text-white"
-              href={`/projeler/${project.status}/${project.slug}`}
+              href={`/referanslar/${project.status}/${project.slug}`}
             >
               {project.title}
             </a>
@@ -493,25 +493,25 @@ function MobileSectorsMenu({ closeMenu }: { closeMenu: () => void }) {
   );
 }
 
-// MobileProjectsMenu, mobil menüde proje kategorilerini ve detay linklerini erişilebilir biçimde listeler.
-function MobileProjectsMenu({ closeMenu }: { closeMenu: () => void }) {
+// MobileReferencesMenu, referans kategorilerini ve proje detaylarını mobil accordion içinde listeler.
+function MobileReferencesMenu({ closeMenu }: { closeMenu: () => void }) {
   const groups = [
     {
       label: "Tamamlanan Projeler",
-      href: "/projeler/tamamlanan",
-      projects: getProjectsByStatus("tamamlanan"),
+      href: "/referanslar/tamamlanan",
+      projects: getReferenceProjectsByStatus("tamamlanan"),
     },
     {
       label: "Devam Eden Projeler",
-      href: "/projeler/devam-eden",
-      projects: getProjectsByStatus("devam-eden"),
+      href: "/referanslar/devam-eden",
+      projects: getReferenceProjectsByStatus("devam-eden"),
     },
   ];
 
   return (
     <div className="mb-3 ml-4 mt-2 space-y-5 border-l border-metallic-gold/40 pl-4">
-      <a className="block text-sm font-semibold text-surface-container-lowest" href="/projeler" onClick={closeMenu}>
-        Tüm Projeler
+      <a className="block text-sm font-semibold text-surface-container-lowest" href="/referanslar" onClick={closeMenu}>
+        Tüm Referanslar
       </a>
       {groups.map((group) => (
         <div key={group.href}>
@@ -522,7 +522,7 @@ function MobileProjectsMenu({ closeMenu }: { closeMenu: () => void }) {
             {group.projects.map((project) => (
               <a
                 className="block py-2 text-[13px] leading-5 text-surface-container-lowest/75"
-                href={`/projeler/${project.status}/${project.slug}`}
+                href={`/referanslar/${project.status}/${project.slug}`}
                 key={project.slug}
                 onClick={closeMenu}
               >

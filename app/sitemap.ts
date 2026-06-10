@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/lib/project-data";
+import { referenceProjects } from "@/lib/reference-project-data";
 import { sectorPages } from "@/lib/sector-data";
 import { solutionPages } from "@/lib/site-data";
 import { subSolutions } from "@/lib/sub-solutions";
@@ -12,10 +12,9 @@ const staticRoutes = [
   "",
   "/cozumler",
   "/sektorler",
-  "/projeler",
-  "/projeler/tamamlanan",
-  "/projeler/devam-eden",
   "/referanslar",
+  "/referanslar/tamamlanan",
+  "/referanslar/devam-eden",
   "/hakkimizda",
   "/iletisim",
   "/teknik-icgoruler",
@@ -29,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...subSolutions.map((solution) => `/cozumler/${solution.parentSlug}/${solution.slug}`),
     verimetContent.href,
     ...sectorPages.map((sector) => `/sektorler/${sector.slug}`),
-    ...projects.map((project) => `/projeler/${project.status}/${project.slug}`),
+    ...referenceProjects.map((project) => `/referanslar/${project.status}/${project.slug}`),
     ...technicalInsights.map((insight) => `/teknik-icgoruler/${insight.slug}`),
   ];
 

@@ -88,7 +88,7 @@ export default function DataCenterPage() {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a className="bg-metallic-gold px-8 py-4 text-center font-label-caps text-label-caps font-bold uppercase text-deep-navy transition-colors hover:bg-white" href="#referanslar">
-              Projelerimizi İnceleyin
+              Referanslarımızı İnceleyin
             </a>
             <a className="border border-white px-8 py-4 text-center font-label-caps text-label-caps font-bold uppercase text-white transition-colors hover:border-metallic-gold hover:text-metallic-gold" href="/iletisim">
               Bizimle İletişime Geçin
@@ -177,7 +177,7 @@ export default function DataCenterPage() {
                 <div className="p-7">
                   <h3 className="mb-4 font-headline-sm text-xl uppercase text-deep-navy">{project.title}</h3>
                   <p className="mb-6 text-on-surface-variant">{project.description}</p>
-                  <a className="font-label-caps text-label-caps text-metallic-gold" href="/projeler">Detayları İncele</a>
+                  <a className="font-label-caps text-label-caps text-metallic-gold" href="/referanslar">Detayları İncele</a>
                 </div>
               </article>
             ))}

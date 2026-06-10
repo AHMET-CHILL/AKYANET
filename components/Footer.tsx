@@ -13,7 +13,6 @@ const footerSolutions = [
 // footerCompanyLinks, şirket ve içerik sayfalarına ait kurumsal bağlantıları tanımlar.
 const footerCompanyLinks = [
   { label: "Hakkımızda", href: "/hakkimizda" },
-  { label: "Projeler", href: "/projeler" },
   { label: "Referanslar", href: "/referanslar" },
   { label: "Teknik İçgörüler", href: "/teknik-icgoruler" },
   { label: "İletişim", href: "/iletisim" },

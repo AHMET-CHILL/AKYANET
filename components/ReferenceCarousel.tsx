@@ -6,6 +6,7 @@ type Reference = {
   slug: string;
   name: string;
   logo: string;
+  projectHref?: string;
 };
 
 // ReferenceCarousel, logoları otomatik kaydırır ve kullanıcıya mouse/touch ile sürükleme kontrolü verir.
@@ -159,7 +160,7 @@ export default function ReferenceCarousel({ references }: { references: Referenc
             <a
               aria-hidden={groupIndex > 0}
               className="flex h-28 w-[240px] shrink-0 items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-metallic-gold md:h-32 md:w-[300px]"
-              href={`/referanslar#${reference.slug}`}
+              href={reference.projectHref ?? `/referanslar#${reference.slug}`}
               key={`${groupIndex}-${reference.name}`}
               onClick={handleLogoClick}
               tabIndex={groupIndex === 0 ? 0 : -1}
