@@ -125,8 +125,7 @@ export default function AboutPage() {
               saha uygulama, kalite kontrol, ürün geliştirme ve müşteri süreçlerinin net sorumluluklarla yürütülmesini sağlar.
             </p>
             <p>
-              CTO, COO, CQO, CFO, CSO ve CHRO fonksiyonları ayrı sorumluluk alanları olarak konumlandırılır. Verimet
-              markası ise PDU ürün geliştirme ve ürün yönetimi odağında teknoloji organizasyonu içinde ayrıca gösterilir.
+              CTO, COO, CQO, CFO, CSO ve CHRO fonksiyonları ayrı sorumluluk alanları olarak konumlandırılır.
             </p>
           </div>
           <p className="mb-4 mt-9 text-sm text-on-surface-variant md:hidden">

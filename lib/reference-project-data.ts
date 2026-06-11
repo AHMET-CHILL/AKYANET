@@ -38,12 +38,12 @@ export const referenceProjects: ReferenceProject[] = [
       "Kartlı geçiş sistemi panosu, merkezi yetkilendirme ve yazılım entegrasyonlarıyla kritik alan erişimleri güvenli, izlenebilir ve yönetilebilir hale getirildi.",
     description:
       "PTT Veri Merkezi projesinde AKYA Group, fiziksel erişim güvenliğinin merkezi olarak yönetilmesi ve kritik alanlara yapılan girişlerin kayıt altına alınması amacıyla bütünleşik bir geçiş kontrol altyapısı oluşturmuştur. Kartlı geçiş sistemi panosu, saha ekipmanları, kullanıcı yetkilendirmeleri ve yazılım katmanı birbiriyle uyumlu çalışacak şekilde devreye alınmıştır. Bu yapı sayesinde yalnızca yetkili personelin belirlenen alanlara erişebilmesi, geçiş hareketlerinin zaman ve kullanıcı bilgisiyle izlenebilmesi ve güvenlik süreçlerinin merkezi bir noktadan yönetilebilmesi sağlanmıştır. Proje, günlük operasyonları zorlaştırmadan veri merkezinin fiziksel güvenlik seviyesini yükselten, denetlenebilir ve sürdürülebilir bir erişim yönetimi yaklaşımı sunmaktadır.",
-    image: "/assets/referanslar/ptt-pkds-panosu.jpeg",
+    image: "/assets/referanslar/ptt-pdks-panosu.jpeg",
     imageAlt: "PTT Veri Merkezi kartlı geçiş sistemi panosu",
     logo: "/reference-ptt.png",
     workItems: [
       {
-        title: "Merkezi PKDS Kontrol Panosu",
+        title: "Merkezi PDKS Kontrol Panosu",
         description:
           "Personel Kartlı Geçiş Sistemi altyapısının merkezi ve düzenli biçimde yönetilebilmesi için kontrol panosu oluşturulmuştur. Güç, kontrol ve saha bağlantıları teknik işletme ihtiyaçlarına uygun biçimde organize edilerek sistemin güvenilir, erişilebilir ve bakımı kolay bir yapıda çalışması sağlanmıştır.",
       },
@@ -70,13 +70,13 @@ export const referenceProjects: ReferenceProject[] = [
     ],
     gallery: [
       {
-        src: "/assets/referanslar/ptt-pkds-panosu.jpeg",
+        src: "/assets/referanslar/ptt-pdks-panosu.jpeg",
         alt: "PTT Veri Merkezi kartlı geçiş sistemi panosu",
       },
     ],
     emphasis: "Merkezi yetkilendirme, kayıtlı geçiş hareketleri ve denetlenebilir erişim süreçleriyle güçlenen fiziksel güvenlik.",
     seoDescription:
-      "PTT Veri Merkezi için PKDS kontrol panosu, yetki bazlı kartlı geçiş, erişim kayıtları ve yazılım entegrasyonlarını kapsayan fiziksel güvenlik projesi.",
+      "PTT Veri Merkezi için PDKS kontrol panosu, yetki bazlı kartlı geçiş, erişim kayıtları ve yazılım entegrasyonlarını kapsayan fiziksel güvenlik projesi.",
   },
   {
     slug: "cevre-ve-sehircilik-bakanligi-veri-merkezi",

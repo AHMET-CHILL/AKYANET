@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/cozumler/veri-merkezi/veri-merkezi-otomasyon-cozumleri",
         permanent: true,
       },
+      {
+        source: "/cozumler/zayif-akim-sistemleri/pacs-personel-devam-kontrol-sistemi",
+        destination: "/cozumler/zayif-akim-sistemleri/pdks-personel-devam-kontrol-sistemi",
+        permanent: true,
+      },
     ];
   },
 };

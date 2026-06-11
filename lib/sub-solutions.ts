@@ -57,7 +57,7 @@ const parentConfigs: Record<string, ParentConfig> = {
     title: "Zayıf Akım Sistemleri",
     hero: "/hero-low-current.jpg",
     useCases: ["Kamu ve kritik altyapılar", "Veri merkezleri", "Akıllı binalar", "Kampüs ve endüstriyel tesisler"],
-    integrations: ["PACS", "CCTV", "RFID", "Biyometri", "Turnike", "BMS", "Alarm sistemleri"],
+    integrations: ["PDKS", "CCTV", "RFID", "Biyometri", "Turnike", "BMS", "Alarm sistemleri"],
   },
   "veri-merkezi": {
     slug: "veri-merkezi",
@@ -252,8 +252,8 @@ const dcimSolutions = createSolutions("dcim-yazilimlari", [
 
 const lowCurrentSolutions = createSolutions("zayif-akim-sistemleri", [
   {
-    slug: "pacs-personel-devam-kontrol-sistemi",
-    title: "PACS - Personel Devam Kontrol Sistemi",
+    slug: "pdks-personel-devam-kontrol-sistemi",
+    title: "PDKS - Personel Devam Kontrol Sistemi",
     scopeTitles: ["Giriş Çıkış", "Yetkilendirme", "Raporlama", "Entegrasyon"],
     scopeItems: [
       "Kartlı, biyometrik veya karma erişim senaryolarıyla personel hareketlerinin izlenmesi",
@@ -270,7 +270,7 @@ const lowCurrentSolutions = createSolutions("zayif-akim-sistemleri", [
       "Ofis, veri merkezi, teknik oda ve kritik alanlarda yetkilendirilmiş erişim",
       "Mifare kart, okuyucu, kontrol paneli, turnike ve kilit entegrasyonu",
       "Personel, zaman ve alan bazlı erişim kurallarının uygulanması",
-      "PACS ve güvenlik yazılımları üzerinden merkezi geçiş raporları",
+      "PDKS ve güvenlik yazılımları üzerinden merkezi geçiş raporları",
     ],
   },
   {
@@ -291,14 +291,14 @@ const lowCurrentSolutions = createSolutions("zayif-akim-sistemleri", [
     scopeItems: [
       "Kritik oda, laboratuvar ve veri merkezi girişlerinde biyometrik doğrulama",
       "Kart veya şifreye ek olarak çok faktörlü güvenlik kurgusu",
-      "PACS ve erişim kontrol altyapısıyla entegre yetki yönetimi",
+      "PDKS ve erişim kontrol altyapısıyla entegre yetki yönetimi",
       "Personel geçiş geçmişi ve denetim kayıtlarının raporlanması",
     ],
   },
   {
     slug: "parmak-izi-okuma-sistemi",
     title: "Parmak İzi Okuma Sistemi",
-    scopeTitles: ["Parmak İzi Terminali", "Personel Doğrulama", "Geçiş Kayıtları", "PACS Entegrasyonu"],
+    scopeTitles: ["Parmak İzi Terminali", "Personel Doğrulama", "Geçiş Kayıtları", "PDKS Entegrasyonu"],
     scopeItems: [
       "Personel devam kontrolü ve kritik alan girişlerinde kimlik doğrulama",
       "Kartlı sistemlere ek güvenlik katmanı oluşturulması",
@@ -379,7 +379,7 @@ const lowCurrentSolutions = createSolutions("zayif-akim-sistemleri", [
     scopeItems: [
       "Depo, saha, teknik oda ve üretim alanlarında varlıkların izlenmesi",
       "Kullanım senaryosuna uygun RFID okuyucu, anten ve etiket seçimi",
-      "Stok takip, PACS, POE ve operasyonel raporlama entegrasyonu",
+      "Stok takip, PDKS, POE ve operasyonel raporlama entegrasyonu",
       "Kayıp azaltma, envanter doğruluğu ve izlenebilirlik kazanımı",
     ],
   },
