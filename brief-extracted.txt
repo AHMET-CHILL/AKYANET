@@ -1,0 +1,571 @@
+﻿AKYA ENERGY
+Web Sitesi Proje İçerikleri ve Codex Uygulama Briefi
+Proje sayfaları, kategori mimarisi, sayfa metinleri, SEO içerikleri ve stok görsel yönlendirmeleri
+Amaç
+akyaenergy.com sitesinde mevcut sektör başlıklarının yanında proje/teknoloji odaklı sayfalar oluşturmak.
+Kapsam
+10 proje için kategori, liste kartı, detay sayfası, SEO metni, URL slug ve görsel yönlendirmesi.
+Uygulama
+Codex mevcut repo yapısını inceleyip tasarım dilini bozmadan proje verilerini component/data yapısıyla ekleyecek.
+Dil ve ton
+Kurumsal, teknik, abartısız; Ar-Ge ve ürün geliştirme odağı güçlü; kanıtlanmamış performans yüzdesi kullanılmayacak.
+Not: Kullanıcı tarafından verilen bazı proje adlarında yazım düzeltmesi yapıldı: Optil -> Optik, Elektrokoalügasyon -> Elektrokoagülasyon, kapasitçr -> kapasitör.
+İçindekiler
+1. Codex için ana görev tanımı
+2. Yeni kategori ve menü mimarisi
+3. Proje listeleme ve routing yapısı
+4. Ana sayfa / projeler bölümü içerikleri
+5. Proje detay sayfası içerikleri
+6. Stok görsel kaynakları ve kullanım notları
+7. SEO, tasarım ve kabul kriterleri
+8. Codex'e kopyalanacak özet prompt
+1. Codex için ana görev tanımı
+Görev: Mevcut akyaenergy.com repo yapısını incele. Site hangi framework, routing ve styling yapısını kullanıyorsa onu koru. Aşağıdaki proje içeriklerini kullanarak kategori sayfaları, proje listeleme sayfası ve her proje için detay sayfası oluştur. Mevcut tasarım dilini bozma; yalnızca içerik mimarisini ve proje sayfalarını genişlet.
+Mevcut 3 sektör başlığı (Doğalgaz, Petrokimya, Yenilenebilir Enerji) tamamen silinmesin; bunlar 'Sektörler' menüsünde kalabilir. Yeni proje içerikleri ise sektör değil teknoloji alanı mantığıyla kategorize edilsin.
+Projeler menüsü ana navigasyonda görünür olsun. Proje listeleme sayfasında filtre/kategori seçimi olsun.
+Her proje için detay sayfası oluşturulsun: hero, kısa açıklama, problem, çözüm, teknik kabiliyetler, uygulama alanları, görsel, CTA ve ilgili projeler alanı.
+İçerik tonu teknik ve kurumsal olsun. 'Kesin yüzde tasarruf', 'garantili giderim', 'en iyi' gibi kanıtlanmamış iddialar kullanılmasın.
+Tüm metinler Türkçe olacak. İngilizce teknik kısaltmalar gerekiyorsa Türkçe açıklamasıyla birlikte kullanılacak.
+2. Yeni kategori ve menü mimarisi
+Bu projeler doğrudan Doğalgaz / Petrokimya / Yenilenebilir Enerji başlıklarına oturmuyor. Daha doğru yaklaşım: sektörleri ayrı tutup, proje ve Ar-Ge çalışmalarını teknoloji alanlarına göre sınıflandırmak.
+Kategori
+URL
+Kategori metni
+Alt projeler
+Akıllı Enerji, IoT ve Otomasyon
+/teknoloji-alanlari/akilli-enerji-iot-otomasyon
+Trafo, saha ekipmanı ve endüstriyel proseslerden veri toplayan; alarm, izleme ve uzaktan kontrol kabiliyeti sunan çözümler.
+Trafo yönetimi için IoT kontrol kartı geliştirilmesiSCADA yazılımı
+Çevresel Teknolojiler ve Atıksu
+/teknoloji-alanlari/cevresel-teknolojiler-atiksu
+Atıksu analizini, proses izlemeyi ve arıtma teknolojilerini daha ölçülebilir hale getiren ürün odaklı Ar-Ge çalışmaları.
+Atıksu analizi için AKM ve KOİ Optik AnalizörüElektrokoagülasyon yöntemi ile atıksu arıtımı
+İleri Sensör ve Görüntüleme Teknolojileri
+/teknoloji-alanlari/ileri-sensor-goruntuleme
+Temassız ölçüm, optik/fiber algılama, termal görüntü işleme ve milimetre dalga tabanlı algılama teknolojileri.
+Milimetre dalga boyları için aktif dizi sensörlü görüntüleme başlığıKalite kontrol sürecinde termal görüntü işleme tabanlı akıllı sistem geliştirilmesiFiber optik sensör geliştirilmesi
+Yapay Zeka ve Kritik Tesis Yönetimi
+/teknoloji-alanlari/yapay-zeka-kritik-tesis-yonetimi
+Enerji yönetimi, soğutma optimizasyonu, veri merkezi izleme ve modelleme süreçlerinde yapay zeka destekli yazılım modülleri.
+Yapay zeka destekli soğutma ve enerji yönetimi için DCIM SCADA ModülüYapay zeka tabanlı süper kapasitör modelleme yazılımı
+Yenilenebilir ve Otonom Sistemler
+/teknoloji-alanlari/yenilenebilir-otonom-sistemler
+Düşük enerji tüketimli, kendinden beslemeli ve saha koşullarına uygun yenilenebilir enerji tabanlı ürünler.
+Kendinden enerjili motorlu güneş bacası aydınlatma sistemi
+Önerilen üst menü
+Ana Sayfa
+Teknoloji Alanları: Akıllı Enerji, IoT ve Otomasyon / Çevresel Teknolojiler ve Atıksu / İleri Sensör ve Görüntüleme / Yapay Zeka ve Kritik Tesis Yönetimi / Yenilenebilir ve Otonom Sistemler
+Projeler: tüm proje kartlarının listelendiği ana sayfa
+Sektörler: Doğalgaz / Petrokimya / Yenilenebilir Enerji
+Kurumsal
+İletişim
+3. Proje listeleme ve routing yapısı
+Proje
+Kategori
+Slug
+Liste kartı kısa metni
+CTA
+Trafo IoT Kontrol Kartı
+Akıllı Enerji, IoT ve Otomasyon
+/projeler/trafo-yonetimi-iot-kontrol-karti
+Dağıtım trafoları için sıcaklık, yük, alarm ve saha verilerini uzaktan izlemeye odaklanan IoT kontrol kartı geliştirmesi.
+Projeyi İncele
+AKM ve KOİ Optik Analizörü
+Çevresel Teknolojiler ve Atıksu
+/projeler/akm-koi-optik-analizoru
+AKM ve KOİ parametrelerinin saha/pilot tesis koşullarında izlenebilmesi için optik algılama ve veri işleme altyapısı.
+Projeyi İncele
+mmWave Aktif Dizi Görüntüleme Başlığı
+İleri Sensör ve Görüntüleme Teknolojileri
+/projeler/milimetre-dalga-aktif-dizi-goruntuleme-basligi
+Milimetre dalga tabanlı aktif dizi sensör mimarisiyle temassız algılama ve görüntüleme başlığı geliştirme projesi.
+Projeyi İncele
+AI Destekli DCIM SCADA Modülü
+Yapay Zeka ve Kritik Tesis Yönetimi
+/projeler/ai-destekli-dcim-scada-modulu
+Enerji, soğutma, sensör ve alarm verilerini DCIM mantığında birleştirerek kritik tesis yönetimini güçlendiren SCADA modülü.
+Projeyi İncele
+Termal Görüntü İşleme ile Kalite Kontrol
+İleri Sensör ve Görüntüleme Teknolojileri
+/projeler/termal-goruntu-isleme-kalite-kontrol
+Termal kamera verisini görüntü işleme ve akıllı analiz yöntemleriyle kalite kontrol kararına dönüştüren sistem geliştirmesi.
+Projeyi İncele
+Kendinden Enerjili Güneş Bacası Aydınlatma
+Yenilenebilir ve Otonom Sistemler
+/projeler/kendinden-enerjili-motorlu-gunes-bacasi-aydinlatma
+Gün ışığını yapı içine taşıyan, motorlu kontrolü kendi enerjisiyle sağlayan yenilenebilir aydınlatma sistemi.
+Projeyi İncele
+SCADA Yazılımı
+Akıllı Enerji, IoT ve Otomasyon
+/projeler/scada-yazilimi
+Farklı saha ekipmanlarından gelen verileri tek panelde izleme, kontrol, alarm ve raporlama ekranlarına dönüştüren SCADA yazılımı.
+Projeyi İncele
+Elektrokoagülasyon ile Atıksu Arıtımı
+Çevresel Teknolojiler ve Atıksu
+/projeler/elektrokoagulasyon-atiksu-aritimi
+Elektriksel koagülasyon prensibiyle atıksu kirleticilerini azaltmaya yönelik modüler reaktör, kontrol ve proses geliştirme çalışması.
+Projeyi İncele
+AI Süper Kapasitör Modelleme Yazılımı
+Yapay Zeka ve Kritik Tesis Yönetimi
+/projeler/ai-super-kapasitor-modelleme-yazilimi
+Süper kapasitör sistemlerinde şarj/deşarj, yaşlanma ve performans davranışını yapay zeka destekli modelleyen yazılım.
+Projeyi İncele
+Fiber Optik Sensör Geliştirilmesi
+İleri Sensör ve Görüntüleme Teknolojileri
+/projeler/fiber-optik-sensor-gelistirilmesi
+Sıcaklık, gerinim, titreşim ve saha güvenliği izleme için fiber optik tabanlı sensör geliştirme projesi.
+Projeyi İncele
+4. Ana sayfa / projeler bölümü içerikleri
+Alan
+Kullanılacak içerik
+Ana sayfa proje bölümü başlığı
+Ar-Ge'den sahaya uzanan enerji teknolojileri
+Ana sayfa proje bölümü paragrafı
+AKYA Energy; enerji altyapıları, çevresel teknolojiler, sensör sistemleri ve endüstriyel yazılım alanlarında ürün odaklı Ar-Ge projeleri geliştirir. Trafo izleme kartlarından DCIM SCADA modüllerine, atıksu analizörlerinden fiber optik sensörlere kadar her proje; ölçülebilir veri, güvenilir işletme ve sürdürülebilir proses yönetimi hedefiyle ele alınır.
+Projeler sayfası hero başlığı
+Teknoloji odaklı proje ve ürün geliştirme çalışmaları
+Projeler sayfası hero metni
+Enerji, çevre, sensör ve yazılım disiplinlerini bir araya getiren AKYA Energy projeleri; saha ihtiyacını ölçülebilir teknolojiye dönüştürmek için geliştirilir. Aşağıdaki projeler, Ar-Ge'den pilot uygulamaya uzanan mühendislik yaklaşımımızı temsil eder.
+Kategori sayfaları ortak CTA
+Projenizi birlikte teknik gereksinimlere dönüştürelim.
+Butonlar
+Projeleri İncele | İletişime Geç | Teknik Görüşme Planla
+5. Proje detay sayfası içerikleri
+Aşağıdaki metinler her proje detay sayfasında doğrudan kullanılacak içerik olarak hazırlanmıştır. Codex mümkünse bu verileri data/projects.ts, projects.json veya mevcut data dosyasına taşımayı tercih etsin.
+5.1 Trafo yönetimi için IoT kontrol kartı geliştirilmesi
+Kategori
+Akıllı Enerji, IoT ve Otomasyon
+Önerilen URL
+/projeler/trafo-yonetimi-iot-kontrol-karti
+Hero başlığı
+Trafo altyapılarında görünmeyen riskleri ölçülebilir veriye dönüştüren IoT kontrol kartı.
+Kart metni
+Dağıtım trafoları için sıcaklık, yük, alarm ve saha verilerini uzaktan izlemeye odaklanan IoT kontrol kartı geliştirmesi.
+SEO
+Title: Trafo IoT Kontrol Kartı | AKYA EnergyDescription: Trafo merkezleri için uzaktan izleme, alarm yönetimi ve enerji sürekliliği odaklı IoT kontrol kartı geliştirme projesi.
+Kısa slogan
+Trafo merkezleri için uzaktan izleme, alarm ve saha kontrol altyapısı.
+Genel açıklama
+Bu proje, dağıtım trafoları ve kompakt trafo merkezleri için geliştirilen IoT tabanlı kontrol kartı altyapısını konu alır. Sistem; sıcaklık, yük, gerilim, akım, kapı/kabin durumu, pano içi çevresel koşullar ve yardımcı sensör verilerini toplayarak uzaktan izleme, alarm yönetimi ve bakım kararlarına veri sağlar. Amaç, trafonun sadece arıza anında değil, arıza oluşmadan önce de takip edilebildiği daha akıllı bir işletme modeli oluşturmaktır.
+Problem / ihtiyaç
+Trafo noktaları çoğu zaman dağınık lokasyonlarda çalışır. Sahadaki arızalar geç fark edildiğinde enerji kesintisi, ekipman hasarı ve plansız bakım maliyeti doğar. Geleneksel kontrol yapıları veriyi merkezi sisteme düzenli taşıyamadığı için işletme ekipleri gerçek zamanlı karar almakta zorlanır.
+Çözüm yaklaşımı
+AKYA Energy yaklaşımı; izole giriş-çıkış yapısı, sensör entegrasyonu, haberleşme modülleri ve alarm mantığına sahip kompakt bir kontrol kartı kurgular. Kart; Modbus/RS485, Ethernet, hücresel haberleşme veya mevcut SCADA altyapısına uyarlanabilir veri aktarımı için tasarlanır. Yazılım tarafında eşik bazlı alarm, olay kayıtları, uzaktan parametre güncelleme ve bakım raporlaması hedeflenir.
+Teknik kabiliyetler
+Gerilim, akım, sıcaklık, nem, kapı durumu ve yardımcı sensör verilerinin toplanması
+Alarm üretimi, olay kaydı ve bakım önceliklendirme
+SCADA, IoT platformu veya web paneline veri aktarımı
+Saha koşullarına uygun endüstriyel haberleşme ve izole giriş-çıkış tasarımı
+Enerji sürekliliği ve kestirimci bakım süreçlerine veri desteği
+Uygulama alanları
+OSB ve fabrika trafo merkezleri
+Dağıtık enerji tesisleri
+GES/RES bağlantı noktaları
+Kompakt trafo köşkleri
+Kritik tesis enerji altyapıları
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: industrial IoT transformer monitoring; electrical substation IoT sensor; smart transformer monitoring dashboard
+Unsplash - Industrial IoT: https://unsplash.com/s/photos/industrial-iot
+Unsplash - IoT Devices: https://unsplash.com/s/photos/iot-devices
+Adobe Stock - Industrial IoT Sensors: https://stock.adobe.com/search?k=industrial+iot+sensors
+5.2 Atıksu analizi için AKM ve KOİ Optik Analizörü
+Kategori
+Çevresel Teknolojiler ve Atıksu
+Önerilen URL
+/projeler/akm-koi-optik-analizoru
+Hero başlığı
+Atıksu kalitesini laboratuvar gecikmesine sıkıştırmadan izleyebilen optik analiz altyapısı.
+Kart metni
+AKM ve KOİ parametrelerinin saha/pilot tesis koşullarında izlenebilmesi için optik algılama ve veri işleme altyapısı.
+SEO
+Title: AKM ve KOİ Optik Analizörü | AKYA EnergyDescription: Atıksu proseslerinde AKM ve KOİ takibi için optik ölçüm, veri işleme ve SCADA entegrasyonu odaklı analizör geliştirme projesi.
+Kısa slogan
+Atıksu proseslerinde hızlı, izlenebilir ve dijital analiz yaklaşımı.
+Genel açıklama
+AKM ve KOİ Optik Analizörü projesi; askıda katı madde (AKM) ve kimyasal oksijen ihtiyacı (KOİ) parametrelerinin atıksu proseslerinde daha hızlı takip edilebilmesi için optik algılama ve veri işleme yaklaşımı geliştirir. Sistem, numune alma ve laboratuvar analiz süreçlerini tamamlayıcı şekilde; saha, pilot tesis veya proses hattı üzerinde ölçüm verisi üretmeyi hedefler.
+Problem / ihtiyaç
+Endüstriyel atıksu proseslerinde anlık değişimler, klasik periyodik numune alma yöntemiyle geç fark edilebilir. Bu durum deşarj kalitesi, kimyasal dozaj, arıtma verimi ve işletme maliyetleri üzerinde belirsizlik yaratır. Sürekli veya sık aralıklı izleme yapılmadığında proses optimizasyonu için yeterli veri birikmez.
+Çözüm yaklaşımı
+Proje kapsamında optik sensör, uygun ölçüm hücresi, kalibrasyon yaklaşımı ve yazılım tabanlı veri işleme modülü birlikte ele alınır. UV/Vis veya bulanıklık temelli ölçüm prensipleri; numune karakterine, proses koşullarına ve hedef doğruluk seviyesine göre kalibre edilir. Analizörün SCADA, veri tabanı veya raporlama paneli ile haberleşmesi planlanır.
+Teknik kabiliyetler
+AKM ve KOİ parametreleri için optik ölçüm yaklaşımı
+Saha/pilot tesis ölçümlerine uygun kompakt analizör kurgusu
+Kalibrasyon, veri filtreleme ve trend izleme altyapısı
+SCADA veya proses izleme paneli ile entegrasyon
+Kimyasal dozaj ve arıtma performansı takibine veri desteği
+Uygulama alanları
+Endüstriyel atıksu arıtma tesisleri
+Belediye atıksu tesisleri
+Petrokimya ve gıda prosesleri
+Laboratuvar destekli saha ölçümleri
+Arıtma optimizasyonu ve proses izleme
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: wastewater laboratory analysis; water quality optical analyzer; industrial wastewater monitoring
+Pexels - Wastewater: https://www.pexels.com/search/wastewater/
+Pexels - Water Analysis: https://www.pexels.com/search/water%20analysis/
+Pexels - Laboratory Analysis: https://www.pexels.com/search/laboratory%20analysis/
+5.3 Milimetre dalga boyları için aktif dizi sensörlü görüntüleme başlığı
+Kategori
+İleri Sensör ve Görüntüleme Teknolojileri
+Önerilen URL
+/projeler/milimetre-dalga-aktif-dizi-goruntuleme-basligi
+Hero başlığı
+Zorlu saha koşullarında temassız algılama kabiliyeti sunan aktif dizi görüntüleme başlığı.
+Kart metni
+Milimetre dalga tabanlı aktif dizi sensör mimarisiyle temassız algılama ve görüntüleme başlığı geliştirme projesi.
+SEO
+Title: Milimetre Dalga Aktif Dizi Sensör | AKYA EnergyDescription: Milimetre dalga boylarında çalışan aktif dizi sensörlü görüntüleme başlığı geliştirme ve sinyal işleme projesi.
+Kısa slogan
+Temassız algılama ve görüntüleme için milimetre dalga tabanlı sensör mimarisi.
+Genel açıklama
+Bu proje, milimetre dalga boylarında çalışan aktif dizi sensör mimarisiyle temassız görüntüleme ve algılama başlığı geliştirmeyi hedefler. Sistem; radar prensipleri, aktif anten dizileri, sinyal işleme ve gömülü elektronik tasarımı bir araya getirerek sis, toz, duman, düşük ışık veya görüşün sınırlı olduğu koşullarda nesne algılama ve görüntüleme kabiliyeti oluşturmayı amaçlar.
+Problem / ihtiyaç
+Optik kameralar her sahada yeterli performans vermez. Düşük görüş, tozlu ortam, yansıtıcı yüzeyler veya kapalı proses koşulları kalite kontrol ve güvenlik uygulamalarında algılama güvenilirliğini azaltabilir. Endüstriyel tesislerde temassız ve çevresel koşullardan daha az etkilenen algılama teknolojilerine ihtiyaç vardır.
+Çözüm yaklaşımı
+AKYA Energy bu projede aktif dizi sensör başlığı, RF ön uç, veri toplama elektroniği ve görüntü oluşturma algoritmalarını bütünleşik bir yapı olarak ele alır. Beamforming, sinyal filtreleme, hedef ayrıştırma ve veri görselleştirme modülleriyle sensör başlığının farklı uygulamalara uyarlanması planlanır.
+Teknik kabiliyetler
+Milimetre dalga tabanlı temassız algılama yaklaşımı
+Aktif dizi sensör ve RF ön uç mimarisi
+Sinyal işleme, hedef ayrıştırma ve görüntü oluşturma
+Zorlu görüş koşullarında çalışma potansiyeli
+Endüstriyel kalite kontrol, güvenlik ve proses izleme uygulamalarına uyarlanabilirlik
+Uygulama alanları
+Endüstriyel proses izleme
+Güvenlik ve çevre algılama
+Makine görüşünün zorlandığı hatlar
+Malzeme ve yüzey inceleme
+Otonom sistem sensör başlıkları
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: mmWave sensor imaging; radar sensor laboratory; advanced sensor array technology
+Unsplash - Sensors: https://unsplash.com/s/photos/sensors
+Unsplash - Sensor: https://unsplash.com/s/photos/sensor
+Pexels - Optical Lab: https://www.pexels.com/search/optical%20lab/
+5.4 Yapay zeka destekli soğutma ve enerji yönetimi için DCIM SCADA Modülü
+Kategori
+Yapay Zeka ve Kritik Tesis Yönetimi
+Önerilen URL
+/projeler/ai-destekli-dcim-scada-modulu
+Hero başlığı
+Veri merkezi ve kritik tesis işletmelerinde enerji verisini karara dönüştüren DCIM SCADA modülü.
+Kart metni
+Enerji, soğutma, sensör ve alarm verilerini DCIM mantığında birleştirerek kritik tesis yönetimini güçlendiren SCADA modülü.
+SEO
+Title: AI Destekli DCIM SCADA Modülü | AKYA EnergyDescription: Veri merkezleri ve kritik tesisler için yapay zeka destekli soğutma, enerji izleme ve DCIM SCADA yazılım modülü.
+Kısa slogan
+Kritik tesislerde soğutma, enerji ve alarm yönetimini tek panelde birleştiren yazılım modülü.
+Genel açıklama
+AI destekli DCIM SCADA Modülü; veri merkezi, kontrol odası ve kritik tesislerde enerji dağıtımı, soğutma altyapısı, çevresel sensörler ve alarm yönetimini tek bir izleme katmanında birleştirmeyi hedefler. Modül, sahadaki SCADA verisini DCIM mantığıyla ilişkilendirerek işletme ekiplerine daha anlaşılır alarm, trend, rapor ve optimizasyon çıktısı sunar.
+Problem / ihtiyaç
+Kritik tesislerde enerji, soğutma, UPS, PDU, klima ve sensör verileri farklı sistemlerde dağınık kalabilir. Bu da alarm karmaşası, gereksiz soğutma tüketimi, kapasite belirsizliği ve geç müdahale riskini artırır. Özellikle veri merkezlerinde sıcak/soğuk koridor performansı, kabin yükleri ve soğutma set değerleri birlikte değerlendirilmelidir.
+Çözüm yaklaşımı
+Modül; Modbus TCP/IP, BACnet/IP, SNMP, RS485 gateway ve API entegrasyonlarıyla saha verisini toplar. Yapay zeka destekli analiz katmanı; anomali tespiti, alarm korelasyonu, set değeri önerisi, enerji yoğunluğu analizi ve kapasite trendlerini üretir. Arayüz tarafında HMI ekranları, ısı haritası yaklaşımı, rapor panelleri ve rol bazlı kullanıcı yönetimi kurgulanır.
+Teknik kabiliyetler
+Enerji, soğutma, sensör ve alarm verilerinin merkezi izlenmesi
+SCADA ve DCIM mantığını birleştiren veri modeli
+Yapay zeka destekli anomali tespiti ve optimizasyon önerileri
+PDU, UPS, klima, enerji analizörü ve çevresel sensör entegrasyonu
+Raporlama, trend, olay geçmişi ve kapasite planlama ekranları
+Uygulama alanları
+Veri merkezleri
+Kontrol odaları
+Telekom ve yayın altyapıları
+Kritik tesis enerji yönetimi
+Endüstriyel HVAC optimizasyonu
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: data center cooling SCADA; control room energy management; data center monitoring dashboard
+Unsplash - Data Center Cooling: https://unsplash.com/s/photos/data-center-cooling
+Unsplash - Control Room: https://unsplash.com/s/photos/control-room
+Unsplash - Data Center: https://unsplash.com/s/photos/data-center
+5.5 Kalite kontrol sürecinde termal görüntü işleme tabanlı akıllı sistem geliştirilmesi
+Kategori
+İleri Sensör ve Görüntüleme Teknolojileri
+Önerilen URL
+/projeler/termal-goruntu-isleme-kalite-kontrol
+Hero başlığı
+Termal kameradan gelen veriyi akıllı kalite kontrol çıktısına dönüştüren görüntü işleme altyapısı.
+Kart metni
+Termal kamera verisini görüntü işleme ve akıllı analiz yöntemleriyle kalite kontrol kararına dönüştüren sistem geliştirmesi.
+SEO
+Title: Termal Görüntü İşleme Kalite Kontrol | AKYA EnergyDescription: Üretim hatları ve bakım süreçleri için termal görüntü işleme tabanlı akıllı kalite kontrol sistemi geliştirme projesi.
+Kısa slogan
+Üretim hatlarında termal veriyi kalite kontrol kararına dönüştüren akıllı sistem.
+Genel açıklama
+Bu proje, üretim ve bakım süreçlerinde termal kamera görüntülerinin işlenerek kalite kontrol, hata tespiti ve proses güvenilirliği amacıyla kullanılmasını hedefler. Sistem; termal görüntü toplama, görüntü ön işleme, eşik/alan analizi, anomali tespiti ve raporlama modüllerinden oluşur. Amaç, gözle fark edilmesi zor ısıl düzensizliklerin üretim kalitesiyle ilişkilendirilmesidir.
+Problem / ihtiyaç
+Üretim hatlarında sıcaklık dağılımı çoğu zaman ürün kalitesi, proses kararlılığı veya ekipman sağlığı hakkında erken sinyal verir. Ancak termal görüntüler manuel incelendiğinde standardizasyon zorlaşır; operatöre bağlı yorum farkları oluşur ve geçmiş veri ile kıyas yapmak güçleşir.
+Çözüm yaklaşımı
+AKYA Energy yaklaşımı; termal kamera verisini yazılım tabanlı görüntü işleme algoritmalarıyla analiz eder. ROI tanımlama, sıcaklık haritası, piksel bazlı eşikleme, model tabanlı anomali tespiti ve üretim kayıtlarıyla eşleştirme modülleri oluşturulur. Sistem, operatör paneli üzerinden uygun/uygunsuz kararları, trendleri ve raporları sunar.
+Teknik kabiliyetler
+Termal kamera verisi toplama ve görüntü ön işleme
+ROI, sıcaklık haritası ve anomali tespit algoritmaları
+Üretim hattı kalite kontrol paneli
+Alarm, rapor ve geçmiş kayıt oluşturma
+Makine öğrenmesiyle hata sınıflandırma altyapısına uyarlanabilirlik
+Uygulama alanları
+Üretim hattı kalite kontrol
+Elektrik panosu ve ekipman termografisi
+PV panel sıcak nokta analizi
+Malzeme kurutma/ısıtma prosesleri
+Kestirimci bakım uygulamaları
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: thermal camera industrial inspection; thermal imaging quality control; industrial thermography
+Pexels - Thermal Camera: https://www.pexels.com/search/thermal%20camera/
+Pexels - Thermal Imaging Camera: https://www.pexels.com/search/thermal%20imaging%20camera/
+Unsplash - Thermal Imaging: https://unsplash.com/s/photos/thermal-imaging
+5.6 Kendinden enerjili motorlu güneş bacası aydınlatma sistemi
+Kategori
+Yenilenebilir ve Otonom Sistemler
+Önerilen URL
+/projeler/kendinden-enerjili-motorlu-gunes-bacasi-aydinlatma
+Hero başlığı
+Elektrik altyapısına bağımlılığı azaltan, kendinden beslemeli motorlu güneş bacası aydınlatma çözümü.
+Kart metni
+Gün ışığını yapı içine taşıyan, motorlu kontrolü kendi enerjisiyle sağlayan yenilenebilir aydınlatma sistemi.
+SEO
+Title: Kendinden Enerjili Güneş Bacası Aydınlatma | AKYA EnergyDescription: Gün ışığı, güneş enerjisi ve motorlu kontrolü birleştiren kendinden enerjili güneş bacası aydınlatma sistemi geliştirme projesi.
+Kısa slogan
+Gün ışığını ve yenilenebilir enerjiyi birleştiren otonom aydınlatma sistemi.
+Genel açıklama
+Kendinden enerjili motorlu güneş bacası aydınlatma sistemi; gün ışığının yapı içine taşınması, aydınlatma ihtiyacının azaltılması ve hareketli/motorlu kontrol mekanizmasının kendi enerji kaynağıyla çalışması prensibine dayanır. Sistem, güneş enerjisi destekli besleme, motorlu yönlendirme veya açıklık kontrolü ve iç mekân aydınlatma verimini artıran optik/mekanik tasarım bileşenlerini bir araya getirir.
+Problem / ihtiyaç
+Depo, fabrika, okul, konteyner ve saha yapılarında gündüz saatlerinde yapay aydınlatma tüketimi ciddi bir enerji gideri oluşturur. Standart pasif aydınlatma çözümleri her durumda yeterli ışık dağılımı veya kontrol sağlamayabilir. Elektrik altyapısının sınırlı olduğu alanlarda motorlu kontrol yapmak ayrıca zorlaşır.
+Çözüm yaklaşımı
+Proje, güneşten elde edilen enerjiyi küçük ölçekli depolama ve kontrol elektroniğiyle birleştirerek motorlu aydınlatma/menfez kontrolü sağlayan bir yapı kurgular. Gün ışığı seviyesine göre açıklık kontrolü, yönlendirme, otomatik kapanma ve bakım gerektirmeyen düşük güç tüketimli çalışma hedeflenir. İç mekânda konforlu ışık dağılımı ve enerji tasarrufu amaçlanır.
+Teknik kabiliyetler
+Kendinden beslemeli düşük güç elektronik kontrol
+Motorlu yönlendirme veya açıklık kontrol mekanizması
+Gün ışığına bağlı otomatik çalışma senaryoları
+Aydınlatma tüketimini azaltmaya yönelik tasarım
+Farklı çatı ve saha yapıları için modüler kurgu
+Uygulama alanları
+Depo ve üretim alanları
+Konteyner ve prefabrik yapılar
+Okul, atölye ve sosyal tesisler
+Elektrik erişimi sınırlı saha noktaları
+Enerji verimliliği projeleri
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: solar daylighting industrial building; solar panels roof daylight system; off grid solar lighting industrial
+Pexels - Solar Panels: https://www.pexels.com/search/solar%20panels/
+Unsplash - Solar Panels: https://unsplash.com/s/photos/solar-panels
+Pexels - Building With Solar Panels: https://www.pexels.com/search/building%20with%20solar%20panels/
+5.7 SCADA yazılımı
+Kategori
+Akıllı Enerji, IoT ve Otomasyon
+Önerilen URL
+/projeler/scada-yazilimi
+Hero başlığı
+Enerji ve proses verisini tek merkezde görünür kılan esnek SCADA yazılımı.
+Kart metni
+Farklı saha ekipmanlarından gelen verileri tek panelde izleme, kontrol, alarm ve raporlama ekranlarına dönüştüren SCADA yazılımı.
+SEO
+Title: SCADA Yazılımı | AKYA EnergyDescription: Enerji ve endüstriyel prosesler için gerçek zamanlı izleme, kontrol, alarm ve raporlama odaklı SCADA yazılım geliştirme projesi.
+Kısa slogan
+Saha verisini gerçek zamanlı izleme, kontrol ve raporlama ekranlarına taşıyan yazılım altyapısı.
+Genel açıklama
+SCADA yazılımı projesi, enerji altyapıları ve endüstriyel proseslerde saha ekipmanlarından gelen verilerin gerçek zamanlı izlenmesi, kontrol edilmesi, alarm yönetimi ve raporlanması için geliştirilen yazılım altyapısını kapsar. Sistem, farklı protokollerle çalışan cihazları tek panelde birleştirerek operatörlerin tesisi daha güvenilir ve ölçülebilir şekilde yönetmesini sağlar.
+Problem / ihtiyaç
+Saha ekipmanları çoğu zaman farklı marka, protokol ve veri formatlarıyla çalışır. Operatörlerin dağınık ekranlar üzerinden takip yapması hem zaman kaybettirir hem de alarm yönetimini zorlaştırır. Verinin tarihsel olarak saklanmaması, performans analizi ve bakım planlamasını sınırlı hale getirir.
+Çözüm yaklaşımı
+Yazılım; HMI ekranları, veri toplama katmanı, alarm motoru, trend ekranları, kullanıcı yetkilendirme, raporlama ve entegrasyon modülleriyle kurgulanır. Modbus, BACnet, OPC-UA, MQTT veya API tabanlı haberleşme, proje ihtiyaçlarına göre uyarlanır. Web tabanlı veya yerel ağda çalışan mimari seçenekleri oluşturulur.
+Teknik kabiliyetler
+Gerçek zamanlı HMI ve proses ekranları
+Alarm, olay geçmişi ve trend takibi
+Kullanıcı rolleri, yetki ve güvenlik katmanı
+Modbus/BACnet/OPC-UA/MQTT/API entegrasyonu
+Raporlama, veri tabanı ve dış sistemlerle entegrasyon
+Uygulama alanları
+Enerji izleme sistemleri
+Atıksu ve proses otomasyonu
+Kritik tesis izleme
+Trafo ve pano izleme
+Yenilenebilir enerji saha izleme
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: industrial SCADA dashboard; control room monitoring software; energy monitoring HMI
+Unsplash - Control Room: https://unsplash.com/s/photos/control-room
+Unsplash - Control Centre: https://unsplash.com/s/photos/control-centre
+Unsplash - Data Center: https://unsplash.com/s/photos/data-center
+5.8 Elektrokoagülasyon yöntemi ile atıksu arıtımı
+Kategori
+Çevresel Teknolojiler ve Atıksu
+Önerilen URL
+/projeler/elektrokoagulasyon-atiksu-aritimi
+Hero başlığı
+Kimyasal kullanımını azaltmaya odaklanan elektrokoagülasyon tabanlı atıksu arıtma çözümü.
+Kart metni
+Elektriksel koagülasyon prensibiyle atıksu kirleticilerini azaltmaya yönelik modüler reaktör, kontrol ve proses geliştirme çalışması.
+SEO
+Title: Elektrokoagülasyon ile Atıksu Arıtımı | AKYA EnergyDescription: Endüstriyel atıksu arıtımı için elektrokoagülasyon reaktörü, güç elektroniği, proses kontrolü ve pilot test geliştirme projesi.
+Kısa slogan
+Elektriksel koagülasyon prensibiyle modüler atıksu arıtma yaklaşımı.
+Genel açıklama
+Elektrokoagülasyon yöntemi ile atıksu arıtımı projesi; elektrik akımı ve uygun elektrot malzemeleri kullanılarak atıksudaki askıda katı maddeler, yağ-gres, renk, ağır metal veya organik yük gibi kirleticilerin giderimine yönelik modüler proses geliştirmeyi hedefler. Proje, laboratuvar/pilot ölçek testlerden saha uygulamasına geçebilecek bir reaktör, güç elektroniği ve kontrol mimarisi oluşturur.
+Problem / ihtiyaç
+Endüstriyel atıksu karakteri tesisten tesise büyük farklılık gösterir. Klasik kimyasal arıtma prosesleri her zaman yeterli verim, düşük çamur miktarı veya kolay işletme sunmayabilir. Değişken debi ve kirletici yüklerinde prosesin hızlı ayarlanabilmesi önemli hale gelir.
+Çözüm yaklaşımı
+AKYA Energy yaklaşımı; elektrot tipi, akım yoğunluğu, bekleme süresi, karıştırma, pH ve ayrıştırma adımlarını kontrol edilebilir bir proses olarak ele alır. Reaktör modülü, güç kaynağı, sensörler ve kontrol yazılımı birlikte tasarlanır. Pilot denemelerden elde edilen verilerle proses reçeteleri oluşturulur ve raporlanır.
+Teknik kabiliyetler
+Elektrokoagülasyon reaktörü ve elektrot konfigürasyonu
+Akım/gerilim kontrollü güç elektroniği
+pH, iletkenlik, bulanıklık ve proses parametre takibi
+Pilot test, numune analizi ve proses reçetesi oluşturma
+SCADA veya kontrol paneliyle izleme ve raporlama
+Uygulama alanları
+Endüstriyel atıksu ön arıtımı
+Yağ-gres ve renk giderimi çalışmaları
+Ağır metal içeren proses suları
+Kimyasal dozaj optimizasyonu
+Pilot tesis ve Ar-Ge denemeleri
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: wastewater treatment facility; water treatment industrial plant; laboratory wastewater testing
+Pexels - Water Treatment: https://www.pexels.com/search/water%20treatment/
+Pexels - Waste Water Treatment Facility: https://www.pexels.com/search/waste%20water%20treatment%20facility/
+Pexels - Water Purification: https://www.pexels.com/search/water%20purification/
+5.9 Yapay zeka tabanlı süper kapasitör modelleme yazılımı
+Kategori
+Yapay Zeka ve Kritik Tesis Yönetimi
+Önerilen URL
+/projeler/ai-super-kapasitor-modelleme-yazilimi
+Hero başlığı
+Süper kapasitör sistemlerinde performans, yaşlanma ve kullanım senaryolarını dijital ortamda modelleyen yazılım.
+Kart metni
+Süper kapasitör sistemlerinde şarj/deşarj, yaşlanma ve performans davranışını yapay zeka destekli modelleyen yazılım.
+SEO
+Title: AI Süper Kapasitör Modelleme Yazılımı | AKYA EnergyDescription: Süper kapasitör enerji depolama sistemleri için yapay zeka destekli şarj/deşarj, yaşlanma ve performans modelleme yazılımı.
+Kısa slogan
+Enerji depolama tasarımında süper kapasitör davranışını modelleyen yapay zeka destekli yazılım.
+Genel açıklama
+Yapay zeka tabanlı süper kapasitör modelleme yazılımı; süper kapasitör hücrelerinin ve paketlerinin şarj/deşarj davranışı, eşdeğer devre parametreleri, sıcaklık etkileri ve kullanım ömrü eğilimlerini modellemek üzere geliştirilen bir yazılım projesidir. Amaç, enerji depolama çözümlerinde tasarım, simülasyon ve optimizasyon süreçlerini hızlandırmaktır.
+Problem / ihtiyaç
+Süper kapasitörler hızlı şarj/deşarj avantajına sahip olsa da gerçek sistem davranışı yük profili, sıcaklık, hücre toleransları ve yaşlanma etkilerine bağlı olarak değişir. Donanım prototipi üretmeden önce doğru modelleme yapılmadığında boyutlandırma hataları ve performans belirsizliği oluşur.
+Çözüm yaklaşımı
+Yazılım; deneysel veriler, veri setleri veya simülasyon çıktıları üzerinden model eğitimi yapabilen bir altyapı kurgular. Eşdeğer devre modeli, makine öğrenmesi, parametre tahmini, yük profili simülasyonu ve raporlama ekranları birlikte değerlendirilir. Sistem, farklı kullanım senaryoları için kapasite, gerilim düşümü, güç tepkisi ve termal eğilimleri karşılaştırabilir.
+Teknik kabiliyetler
+Şarj/deşarj eğrisi modelleme
+Eşdeğer devre parametre tahmini
+Sıcaklık ve yaşlanma etkilerinin analizi
+Yük profiline göre performans simülasyonu
+Enerji depolama boyutlandırma ve raporlama ekranları
+Uygulama alanları
+Mikro şebeke ve enerji depolama tasarımı
+UPS ve ani güç destek sistemleri
+Elektrikli araç yardımcı enerji sistemleri
+Laboratuvar Ar-Ge testleri
+Batarya/süper kapasitör hibrit sistemleri
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: energy storage software dashboard; supercapacitor electronics lab; battery energy storage analytics
+Unsplash - Battery: https://unsplash.com/s/photos/battery
+Unsplash - Energy Storage: https://unsplash.com/s/photos/energy-storage
+Pexels - Electronics Lab: https://www.pexels.com/search/electronics%20lab/
+5.10 Fiber optik sensör geliştirilmesi
+Kategori
+İleri Sensör ve Görüntüleme Teknolojileri
+Önerilen URL
+/projeler/fiber-optik-sensor-gelistirilmesi
+Hero başlığı
+Zorlu endüstriyel ortamlarda uzun mesafeli ve elektromanyetik gürültüden daha az etkilenen algılama altyapısı.
+Kart metni
+Sıcaklık, gerinim, titreşim ve saha güvenliği izleme için fiber optik tabanlı sensör geliştirme projesi.
+SEO
+Title: Fiber Optik Sensör Geliştirme | AKYA EnergyDescription: Endüstriyel tesisler, enerji altyapıları ve kritik sahalar için fiber optik sensör geliştirme, veri izleme ve SCADA entegrasyonu projesi.
+Kısa slogan
+Sıcaklık, gerinim, titreşim ve saha güvenliği için fiber optik algılama yaklaşımı.
+Genel açıklama
+Fiber optik sensör geliştirilmesi projesi; sıcaklık, gerinim, titreşim, basınç veya çevresel değişkenlerin fiber optik tabanlı algılama yöntemleriyle izlenmesini hedefler. Fiber Bragg Grating (FBG), dağıtık sıcaklık algılama veya uygulamaya özel optik sensör mimarileri; proje ihtiyacına göre değerlendirilir. Amaç, zorlu saha koşullarında güvenilir ve uzun mesafeli ölçüm altyapısı oluşturmaktır.
+Problem / ihtiyaç
+Elektriksel sensörler yüksek elektromanyetik gürültü, uzun kablo mesafesi, yüksek gerilim yakınlığı, patlayıcı ortam veya korozyon gibi şartlarda sınırlı kalabilir. Kritik altyapılarda sıcaklık, titreşim veya gerinim verisinin kesintisiz ve güvenilir izlenmesi gerekir.
+Çözüm yaklaşımı
+Proje, fiber optik sensör elemanı, optik okuyucu/arayüz, veri işleme yazılımı ve saha montaj mimarisini birlikte ele alır. Uygulama alanına göre noktasal veya dağıtık ölçüm yaklaşımı seçilir. Toplanan veriler trend, alarm ve raporlama ekranlarına aktarılır; SCADA veya bakım sistemleriyle entegrasyon hedeflenir.
+Teknik kabiliyetler
+Sıcaklık, gerinim, titreşim veya basınç algılama mimarisi
+FBG veya dağıtık optik algılama yaklaşımına uyarlanabilir tasarım
+Uzun mesafe ölçüm ve elektromanyetik gürültüye dayanım avantajı
+Alarm, trend ve rapor ekranları
+Kablo, boru hattı, trafo ve kritik yapı izleme uygulamaları
+Uygulama alanları
+Enerji kabloları ve trafo merkezleri
+Boru hatları ve endüstriyel tesisler
+Veri merkezi ve kritik altyapı izleme
+Yapısal sağlık izleme
+Yüksek gerilim veya EMI riski olan sahalar
+Sayfa CTA önerisi
+Bu proje için teknik görüşme planlayın / Benzer bir saha ihtiyacınız varsa AKYA Energy ekibiyle iletişime geçin.
+Görsel yönlendirmesi
+Arama terimleri: fiber optic sensor laboratory; fiber optic cables technology; optical sensing lab
+Pexels - Fiber Optic: https://www.pexels.com/search/fiber%20optic/
+Pexels - Optical Lab: https://www.pexels.com/search/optical%20lab/
+Unsplash - Fiber Optic: https://unsplash.com/s/photos/fiber-optic
+6. Stok görsel kaynakları ve kullanım notları
+Stok görseller proje sayfalarına doğrudan gömülmeden önce tekil görsel sayfasındaki lisans, kişi/marka hakları ve ticari kullanım koşulları kontrol edilmelidir. Ücretsiz kaynaklarda bile insan yüzü, logo, marka, tescilli ürün veya yanlış bağlam riski varsa alternatif görsel seçilmelidir.
+Lisans notu: Unsplash görselleri genel olarak ücretsiz indirilebilir ve ticari/ticari olmayan kullanım için izin gerekmeden kullanılabilir; atıf takdir edilir. Pexels fotoğraf ve videoları da ücretsiz kullanılabilir ve atıf zorunlu değildir. Yine de her görsel finalde tekil sayfasından kontrol edilmelidir.
+Kaynak
+Ne için kullanılacak
+Link
+Unsplash
+Data center, IoT, SCADA, sensör, solar, fiber optik görselleri
+https://unsplash.com/license
+Pexels
+Atıksu, laboratuvar, termal kamera, su arıtma ve fiber optik görselleri
+https://www.pexels.com/license/
+Adobe Stock / iStock
+Daha niş mmWave, aktif dizi sensör, endüstriyel IoT görselleri gerekiyorsa ücretli alternatif
+https://stock.adobe.com/
+7. SEO, tasarım ve kabul kriterleri
+SEO kuralları
+Her proje detay sayfasında H1 yalnızca bir kez kullanılmalı: proje hero başlığı.
+Meta title 55-65 karakter bandına yakın tutulmalı; AKYA Energy ibaresi sonda kullanılmalı.
+Meta description 140-165 karakter bandında, proje amacını teknik ama sade şekilde özetlemeli.
+Slug'lar Türkçe karakter içermemeli; tire ile ayrılmalı; küçük harf kullanılmalı.
+Projeler arası iç bağlantı eklenmeli. Aynı kategorideki 2-3 proje 'İlgili projeler' alanında gösterilmeli.
+Tasarım kuralları
+AKYA Group kurumsal çizgisi korunacak; AKYA Energy için daha teknolojik ve enerji odaklı vurgu yapılacak.
+Kart tasarımlarında kategori etiketi, kısa açıklama ve 'Projeyi İncele' butonu bulunacak.
+Detay sayfalarında üstte güçlü bir hero alanı, altında iki kolonlu teknik özet veya özellik kartları kullanılabilir.
+Stok görseller endüstriyel, temiz ve kurumsal görünmeli; aşırı yapay, oyun sitesi gibi duran, neon/fantastik görsellerden kaçınılmalı.
+Mobil görünümde kartlar tek kolona düşmeli; görsel ve metin taşmaları olmayacak.
+Kabul kriterleri
+10 projenin tamamı proje listeleme sayfasında görünür olmalı.
+Her proje için ayrı detay sayfası ve çalışır route olmalı.
+Kategori filtreleri doğru çalışmalı.
+Menüde Projeler ve Teknoloji Alanları erişilebilir olmalı.
+Sayfalarda placeholder metin kalmamalı; bu briefteki içerikler kullanılmalı.
+Görseller için alt text girilmeli: proje adı + teknolojik bağlam.
+Mevcut site build/lint süreci hatasız tamamlanmalı.
+8. Codex'e kopyalanacak özet prompt
+Mevcut akyaenergy.com repo yapısını incele. Framework, routing ve styling sistemi ne ise onu koru. Bu briefte verilen içeriklere göre siteye proje ve teknoloji alanları mimarisi ekle.
+Ana hedefler:
+1) Mevcut Doğalgaz, Petrokimya ve Yenilenebilir Enerji sektör başlıkları kalsın; fakat aşağıdaki projeleri sektörlerden bağımsız olarak 'Teknoloji Alanları' ve 'Projeler' yapısında kategorize et.
+2) Üst menüye 'Teknoloji Alanları' ve 'Projeler' ekle.
+3) /projeler sayfasında tüm proje kartlarını listele; kategori filtreleri ekle.
+4) Her proje için /projeler/[slug] formatında detay sayfası oluştur.
+5) Detay sayfası içeriği: hero, kısa slogan, genel açıklama, problem/ihtiyaç, çözüm yaklaşımı, teknik kabiliyetler, uygulama alanları, CTA, ilgili projeler, SEO title/description.
+6) Tüm metinler Türkçe olacak. Abartılı/kesin iddialar kullanma. Ar-Ge ve ürün geliştirme odağı kurumsal dille anlatılacak.
+7) Stok görseller için bu briefte verilen arama linklerini kullan; final görsel lisansını kontrol et; görsel yoksa estetik placeholder kullan ama alt textleri hazırla.
+8) Mobil uyumluluğu, erişilebilir alt textleri ve build/lint hatasız çalışmayı kontrol et.
+Kategoriler:
+- Akıllı Enerji, IoT ve Otomasyon: Trafo IoT Kontrol Kartı, SCADA Yazılımı
+- Çevresel Teknolojiler ve Atıksu: AKM ve KOİ Optik Analizörü, Elektrokoagülasyon ile Atıksu Arıtımı
+- İleri Sensör ve Görüntüleme Teknolojileri: mmWave Aktif Dizi Görüntüleme Başlığı, Termal Görüntü İşleme ile Kalite Kontrol, Fiber Optik Sensör Geliştirilmesi
+- Yapay Zeka ve Kritik Tesis Yönetimi: AI Destekli DCIM SCADA Modülü, AI Süper Kapasitör Modelleme Yazılımı
+- Yenilenebilir ve Otonom Sistemler: Kendinden Enerjili Motorlu Güneş Bacası Aydınlatma
+İçerikleri bu Word briefindeki proje detay metinlerinden al. İçerikleri kısaltma; sayfalara düzgün biçimde yerleştir. Mevcut tasarım dilini bozma, ama AKYA Energy için teknolojik ve kurumsal bir proje vitrin yapısı oluştur.
+Data model önerisi
+Codex mümkünse proje içeriklerini tek bir veri dosyasında tutsun. Örnek alanlar:
+title, shortTitle, category, slug, tagline, hero, overview, challenge, solution, capabilities[], useCases[], card, seoTitle, seoDescription, image, imageAlt, relatedProjects[]
