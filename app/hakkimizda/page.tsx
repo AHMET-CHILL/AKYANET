@@ -170,6 +170,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="bg-slate-gray px-margin-mobile py-16 md:px-margin-desktop md:py-20">
+        <div className="mx-auto flex max-w-container-max flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <p className="font-label-caps text-label-caps uppercase text-metallic-gold">Yasal Bilgilendirme</p>
+            <h2 className="mt-4 font-headline-sm text-3xl uppercase leading-tight text-deep-navy">
+              E-posta Gizlilik ve Yasal Uyarı
+            </h2>
+            <p className="mt-5 max-w-3xl leading-7 text-on-surface-variant">
+              AKYA Dijital Dönüşüm A.Ş. tarafından gönderilen e-postalar ve eklerine ilişkin gizlilik, sorumluluk ve
+              fikri mülkiyet koşullarını inceleyebilirsiniz.
+            </p>
+          </div>
+          <Link
+            className="border border-deep-navy px-8 py-4 text-center font-label-caps text-sm font-bold uppercase text-deep-navy hover:bg-deep-navy hover:text-white"
+            href="/hakkimizda/e-posta-disclaimer"
+          >
+            Metni Görüntüle
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-deep-navy px-margin-mobile py-20 text-white md:px-margin-desktop md:py-24">
         <div className="mx-auto flex max-w-container-max flex-col justify-between gap-10 lg:flex-row lg:items-end">
           <div>
